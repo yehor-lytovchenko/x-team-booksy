@@ -10,33 +10,33 @@
   --active-link-opacity: 0.8;
   --disablr-link-opacity: 0.2;
   --white-color: #ffffff;
- //*TODO Orange-btn *//
---btn-normal-bcg-color: #e15d05;
+
+  /* TODO Orange-btn */
+  --btn-normal-bcg-color: #e15d05;
   --btn-hover-bcg-color: #0b0500;
   --btn-active-bcg-color: #b44a04;
 
-//* TODO White-btn *//
---wbtn-hover-bcg-color: #ea8d50;
+  /* TODO White-btn */
+  --wbtn-hover-bcg-color: #ea8d50;
   --wbtn-active-bcg-color: #dad9d8;
   --wbtn-border: 1px solid #0b0500;
   --btns-disable-opacity: 0.2;
 
-//* TODO Inputs *//
---input-background-color: rgba(11, 5, 0, 0.05);
+  /* TODO Inputs */
+  --input-background-color: rgba(11, 5, 0, 0.05);
   --placeholder-color: rgba(11, 5, 0, 0.6);
   --error-color: #ad0000;
   --inputs-border: 1px solid rgba(11, 5, 0, 0.15);
   --inputs-textarea-border: 1px solid rgba(11, 5, 0, 0.6);
 
-//* TODO Arows  *//
---arrows-btn-normal: #e15d05;
+  /* TODO Arrows */
+  --arrows-btn-normal: #e15d05;
   --arrows-btn-hover: #fceee6;
   --arrows-btn-active: #5a2502;
   --arrows-btn-disable-opacity: 0.2;
   --main-background: #fceee6;
   --footer-backgroud: #ea8d50;
   --primary-transition: 250ms linear;
-
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
