@@ -6,6 +6,10 @@
   --main-font: 'Rubik', sans-serif;
   --primary-color: #0b0500;
 
+  --main-background: #fceee6;
+  --footer-backgroud: #ea8d50;
+  --primary-transition: 250ms linear;
+
   --hover-link-opacity: 0.2;
   --active-link-opacity: 0.8;
   --disablr-link-opacity: 0.2;
@@ -34,9 +38,7 @@
   --arrows-btn-hover: #fceee6;
   --arrows-btn-active: #5a2502;
   --arrows-btn-disable-opacity: 0.2;
-  --main-background: #fceee6;
-  --footer-backgroud: #ea8d50;
-  --primary-transition: 250ms linear;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -46,6 +48,7 @@
 }
 
 body {
+  background: var(--main-background);
   display: flex;
   flex-direction: column;
   min-width: 100vw;
