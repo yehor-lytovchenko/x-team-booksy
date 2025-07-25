@@ -1,0 +1,52 @@
+.events-container {
+}
+.events-top-content {
+}
+.events-pre-header {
+}
+.events-header {
+}
+.events-desc {
+}
+.events-list {
+}
+.events-item {
+}
+.events-img {
+}
+.events-item-title {
+}
+.events-item-time {
+}
+.events-item-desc {
+}
+.events-register-link {
+}
+.events-register-link-arrow {
+}
+
+/* <!-- Swiper Styles --> */
+
+.events-swiper {
+  position: relative;
+  padding: 40px 0;
+}
+
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000;
+}
+
+.swiper-pagination-bullet {
+  background: #999;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #000;
+  opacity: 1;
+}
