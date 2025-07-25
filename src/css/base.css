@@ -48,6 +48,7 @@
 }
 
 body {
+
   background: var(--main-background);
   display: flex;
   flex-direction: column;
