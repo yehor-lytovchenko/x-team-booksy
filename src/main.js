@@ -1,1 +1,1 @@
-import "modern-normalize";
+import 'modern-normalize';
