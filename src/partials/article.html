@@ -1,0 +1,41 @@
+<section class="article">
+  <div class="container article-container">
+    <div class="article-info">
+      <h2 class="article-title">
+        Welcome to Booksy – your cozy corner for handpicked reads.
+      </h2>
+
+      <p class="article-description">
+        We believe books are more than just stories — they’re companions,
+        doorways, and memories. Whether you’re chasing adventures or quiet
+        moments, we’re here to help you find your next favorite book.
+      </p>
+    </div>
+
+    <picture>
+      <source
+        srcset="
+          ./img/desktop-webp/layout-desktop.webp    1x,
+          ./img/desktop-webp/layout-desktop@2x.webp 2x
+        "
+        media="(min-width: 1200px)"
+        type="image/webp"
+      />
+      <source
+        srcset="
+          ./img/tablet-webp/layout-tablet.webp    1x,
+          ./img/tablet-webp/layout-tablet@2x.webp 2x
+        "
+        media="(min-width: 768px)"
+        type="image/webp"
+      />
+      <img
+        class="article-img"
+        src="./img/mob-webp/layout-mob.webp"
+        srcset="./img/mob-webp/layout-mob@2x.webp 2x"
+        alt="Cozy home library with bookshelves and comfortable reading chairs"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+</section>
