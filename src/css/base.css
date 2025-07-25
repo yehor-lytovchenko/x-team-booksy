@@ -39,7 +39,6 @@
   --arrows-btn-active: #5a2502;
   --arrows-btn-disable-opacity: 0.2;
 
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -48,8 +47,7 @@
 }
 
 body {
-
-  background: var(--main-background);
+  background-color: var(--main-background);
   display: flex;
   flex-direction: column;
   min-width: 100vw;
