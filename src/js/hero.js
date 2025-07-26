@@ -6,16 +6,16 @@ const SLIDES = [
     link: '#books',
     images: {
       desktop: {
-        src: './img/desktop-webp/banner-1-desktop.webp',
-        src2x: './img/desktop-webp/banner-1-desktop@2x.webp',
+        src: 'img/desktop-webp/banner-1-desktop.webp',
+        src2x: 'img/desktop-webp/banner-1-desktop@2x.webp',
       },
       tablet: {
-        src: './img/tablet-webp/banner-1-tablet.webp',
-        src2x: './img/tablet-webp/banner-1-tablet@2x.webp',
+        src: 'img/tablet-webp/banner-1-tablet.webp',
+        src2x: 'img/tablet-webp/banner-1-tablet@2x.webp',
       },
       mobile: {
-        src: './img/mob-webp/banner-1-mob.webp',
-        src2x: './img/mob-webp/banner-1-mob@2x.webp',
+        src: 'img/mob-webp/banner-1-mob.webp',
+        src2x: 'img/mob-webp/banner-1-mob@2x.webp',
       },
     },
   },
@@ -26,16 +26,16 @@ const SLIDES = [
     link: '#books',
     images: {
       desktop: {
-        src: './img/desktop-webp/banner-2-desktop.webp',
-        src2x: './img/desktop-webp/banner-2-desktop@2x.webp',
+        src: 'img/desktop-webp/banner-2-desktop.webp',
+        src2x: 'img/desktop-webp/banner-2-desktop@2x.webp',
       },
       tablet: {
-        src: './img/tablet-webp/banner-2-tablet.webp',
-        src2x: './img/tablet-webp/banner-2-tablet@2x.webp',
+        src: 'img/tablet-webp/banner-2-tablet.webp',
+        src2x: 'img/tablet-webp/banner-2-tablet@2x.webp',
       },
       mobile: {
-        src: './img/mob-webp/banner-2-mob.webp',
-        src2x: './img/mob-webp/banner-2-mob@2x.webp',
+        src: 'img/mob-webp/banner-2-mob.webp',
+        src2x: 'img/mob-webp/banner-2-mob@2x.webp',
       },
     },
   },
@@ -46,16 +46,16 @@ const SLIDES = [
     link: '#books',
     images: {
       desktop: {
-        src: './img/desktop-webp/banner-3-desktop.webp',
-        src2x: './img/desktop-webp/banner-3-desktop@2x.webp',
+        src: 'img/desktop-webp/banner-3-desktop.webp',
+        src2x: 'img/desktop-webp/banner-3-desktop@2x.webp',
       },
       tablet: {
-        src: './img/tablet-webp/banner-3-tablet.webp',
-        src2x: './img/tablet-webp/banner-3-tablet@2x.webp',
+        src: 'img/tablet-webp/banner-3-tablet.webp',
+        src2x: 'img/tablet-webp/banner-3-tablet@2x.webp',
       },
       mobile: {
-        src: './img/mob-webp/banner-3-mob.webp',
-        src2x: './img/mob-webp/banner-3-mob@2x.webp',
+        src: 'img/mob-webp/banner-3-mob.webp',
+        src2x: 'img/mob-webp/banner-3-mob@2x.webp',
       },
     },
   },
@@ -66,16 +66,16 @@ const SLIDES = [
     link: '#books',
     images: {
       desktop: {
-        src: './img/desktop-webp/banner-4-desktop.webp',
-        src2x: './img/desktop-webp/banner-4-desktop@2x.webp',
+        src: 'img/desktop-webp/banner-4-desktop.webp',
+        src2x: 'img/desktop-webp/banner-4-desktop@2x.webp',
       },
       tablet: {
-        src: './img/tablet-webp/banner-4-tablet.webp',
-        src2x: './img/tablet-webp/banner-4-tablet@2x.webp',
+        src: 'img/tablet-webp/banner-4-tablet.webp',
+        src2x: 'img/tablet-webp/banner-4-tablet@2x.webp',
       },
       mobile: {
-        src: './img/mob-webp/banner-4-mob.webp',
-        src2x: './img/mob-webp/banner-4-mob@2x.webp',
+        src: 'img/mob-webp/banner-4-mob.webp',
+        src2x: 'img/mob-webp/banner-4-mob@2x.webp',
       },
     },
   },
