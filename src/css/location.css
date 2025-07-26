@@ -1,7 +1,8 @@
 .location-section {
+  display: flex;
+  justify-content: center;
   background-color: var(--main-background);
   padding: 64px 0;
-  margin-bottom: 64px;
   color: var(--primary-color);
 }
 
@@ -9,7 +10,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  max-width: 1200px;
+  width: 100%;
   margin: 0;
   padding: 0 16px;
 }
@@ -68,7 +69,6 @@
   width: 100%;
   max-width: 336px;
   height: auto;
-  /* margin-bottom: 24px; */
 }
 
 .location-list li {
@@ -111,8 +111,6 @@
 .location-map {
   height: 395px;
   width: 100%;
-  /* overflow: hidden; */
-  /* max-width: 100%; */
 }
 
 .location-map iframe {
@@ -136,17 +134,12 @@
     align-items: flex-start;
     flex-wrap: nowrap;
     gap: 32px;
-    /* width: 100%;
-    height: auto;
-    margin: 0 auto; */
   }
 
   .location-text-wrapper,
   .location-list {
     flex: 1 1 336px;
     max-width: none;
-    /* max-width: 48%; */
-    /* margin-bottom: 0; */
   }
   .location-list {
     display: flex;
@@ -164,7 +157,6 @@
 /* ==== DESKTOP ==== */
 @media screen and (min-width: 1440px) {
   .location-container {
-    max-width: 1440px;
     padding: 0 64px;
     margin: 0 auto;
   }
