@@ -1,5 +1,3 @@
-// Swiper slider //
-
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -8,7 +6,7 @@ import 'swiper/css/pagination';
 
 const swiper = new Swiper('.events-swiper', {
   modules: [Navigation, Pagination],
-  loop: true,
+  loop: false, 
   spaceBetween: 20,
   slidesPerView: 1,
 
@@ -16,7 +14,7 @@ const swiper = new Swiper('.events-swiper', {
     768: {
       slidesPerView: 2,
     },
-    1440: {
+    1200: {
       slidesPerView: 3,
     },
   },
@@ -24,6 +22,7 @@ const swiper = new Swiper('.events-swiper', {
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
+    disabledClass: 'swiper-button-disabled', 
   },
 
   pagination: {
@@ -31,6 +30,7 @@ const swiper = new Swiper('.events-swiper', {
     clickable: true,
   },
 });
+
 
 
 // Random event time function //
@@ -42,7 +42,7 @@ function getRandomFutureTime(daysAhead = 30) {
   const options = {
     month: 'long',
     day: 'numeric',
-    hour: 'numeric',
+    hour: '2-digit',
     minute: '2-digit',
     hour12: true,
   };
