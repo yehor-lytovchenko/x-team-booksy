@@ -109,8 +109,7 @@ const generateMarkup = arr => {
 };
 
 const createGallery = slides => {
-  const markup = generateMarkup(slides);
-  wrapperContainer.innerHTML = markup;
+  wrapperContainer.innerHTML = generateMarkup(slides);
 };
 
 createGallery(SLIDES);
