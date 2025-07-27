@@ -10,10 +10,10 @@
     </div>
 
     <!-- Swiper wrapper -->
-    <div class="swiper events-swiper">
-      <ul class="swiper-wrapper">
+    <div class="events-swiper swiper">
+      <ul class="events-swiper-wrapper swiper-wrapper">
         <!-- Slide 1 -->
-        <li class="swiper-slide events-item">
+        <li class="events-swiper-slide swiper-slide events-item">
           <picture>
             <source
               media="(min-width: 1440px)"
@@ -65,7 +65,7 @@
         </li>
 
         <!-- Slide 2 -->
-        <li class="swiper-slide events-item">
+        <li class="events-swiper-slide swiper-slide events-item">
           <picture>
             <source
               media="(min-width: 1440px)"
@@ -115,7 +115,7 @@
         </li>
 
         <!-- Slide 3 -->
-        <li class="swiper-slide events-item">
+        <li class="events-swiper-slide swiper-slide events-item">
           <picture>
             <source
               media="(min-width: 1440px)"
@@ -166,23 +166,44 @@
       </ul>
     </div>
 
-    <div class="swiper-controls">
+    <div class="events-swiper-controls">
+      <div class="events-swiper-pagination swiper-pagination"></div>
 
-    <div class="swiper-pagination"></div>
-
-    <div class="swiper-buttons-container">
-
-    <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide">
-        <svg class="swiper-arrow" width="24" height="24" aria-hidden="true" focusable="false">
+      <div class="events-swiper-buttons-container">
+        <div
+          class="events-swiper-button-prev swiper-button-prev"
+          tabindex="0"
+          role="button"
+          aria-label="Previous slide"
+        >
+          <svg
+            class="events-swiper-arrow"
+            width="24"
+            height="24"
+            aria-hidden="true"
+            focusable="false"
+          >
             <use href="./img/icons.svg#icon-left-arrow-alt"></use>
-        </svg>
-    </div>
+          </svg>
+        </div>
 
-    <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide">
-        <svg class="swiper-arrow" width="24" height="24" aria-hidden="true" focusable="false">
+        <div
+          class="events-swiper-button-next swiper-button-next"
+          tabindex="0"
+          role="button"
+          aria-label="Next slide"
+        >
+          <svg
+            class="events-swiper-arrow"
+            width="24"
+            height="24"
+            aria-hidden="true"
+            focusable="false"
+          >
             <use href="./img/icons.svg#icon-right-arrow-alt"></use>
-        </svg>
+          </svg>
+        </div>
+      </div>
     </div>
-</div>
   </div>
 </section>

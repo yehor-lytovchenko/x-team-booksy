@@ -4,36 +4,43 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const swiper = new Swiper('.events-swiper', {
-  modules: [Navigation, Pagination],
-  loop: false, 
-  spaceBetween: 20,
-  slidesPerView: 1,
+document.addEventListener('DOMContentLoaded', () => {
+  const swiper = new Swiper('.events-swiper', {
+    modules: [Navigation, Pagination],
+    loop: false,
+    spaceBetween: 20,
+    slidesPerView: 1,
 
-  breakpoints: {
-    768: {
-      slidesPerView: 2,
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+      1440: {
+        slidesPerView: 3,
+      },
     },
-    1440: {
-      slidesPerView: 3,
+
+    navigation: {
+      nextEl: '.events-swiper-button-next',
+      prevEl: '.events-swiper-button-prev',
+      disabledClass: 'events-swiper-button-disabled',
     },
-  },
 
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-    disabledClass: 'swiper-button-disabled', 
-  },
+    pagination: {
+      el: 'events-swiper-pagination',
+      clickable: true,
+    },
+  });
 
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
+
+  /* Randome date function */
+
+
+  const timeElements = document.querySelectorAll('.events-item-time');
+  timeElements.forEach(el => {
+    el.textContent = getRandomFutureTime();
+  });
 });
-
-
-
-// Random event time function //
 
 function getRandomFutureTime(daysAhead = 30) {
   const now = new Date();
@@ -47,11 +54,5 @@ function getRandomFutureTime(daysAhead = 30) {
     hour12: true,
   };
 
-  const formattedDate = future.toLocaleString('en-US', options);
-  return ` | ${formattedDate}`;
+  return ` | ${future.toLocaleString('en-US', options)}`;
 }
-
-const timeElements = document.querySelectorAll('.events-item-time');
-timeElements.forEach(el => {
-  el.textContent = getRandomFutureTime();
-});
