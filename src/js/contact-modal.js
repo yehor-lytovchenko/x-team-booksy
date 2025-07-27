@@ -57,6 +57,17 @@ function clearStorage() {
 // ==============================
 // 4. Відкриття та закриття
 // ==============================
+const openButtons = document.querySelectorAll('.open-modal-btn');
+const subtitleEl = modal.querySelector('.modal-subtitle');
+
+openButtons.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const subtitle = btn.dataset.subtitle || '';
+    subtitleEl.textContent = subtitle;
+    openModal();
+  });
+});
+
 function openModal() {
   modal.style.display = 'block';
   backdrop.style.display = 'block';
