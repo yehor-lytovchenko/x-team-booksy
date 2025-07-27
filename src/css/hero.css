@@ -10,7 +10,7 @@ img {
   margin: 0 auto;
 }
 
-.swiper-button {
+.hero-swiper-button {
   border: 1px solid rgba(11, 5, 0, 0.15);
   padding: 12px;
   width: 48px;
@@ -20,19 +20,19 @@ img {
   transition: background-color var(--primary-transition);
 }
 
-.swiper-button:hover,
-.swiper-button:focus {
+.hero-swiper-button:hover,
+.hero-swiper-button:focus {
   background-color: var(--arrows-btn-hover);
   fill: var(--primary-color);
 }
 
-.swiper-button:active {
+.hero-swiper-button:active {
   background-color: var(--arrows-btn-active);
   fill: var(--white-color);
 }
 
-.swiper-button-next.is-disabled,
-.swiper-button-prev.is-disabled {
+.hero-swiper-button-next.is-disabled,
+.hero-swiper-button-prev.is-disabled {
   pointer-events: none;
   cursor: default;
   background-color: rgba(225, 93, 5, 0.2);
@@ -41,12 +41,12 @@ img {
   fill: var(--primary-color);
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
+.hero-swiper-button-next:after,
+.hero-swiper-button-prev:after {
   display: none;
 }
 
-.swiper-button-wrapper {
+.hero-swiper-button-wrapper {
   display: flex;
   justify-content: flex-end;
   column-gap: 16px;
@@ -57,18 +57,18 @@ img {
   fill: inherit;
 }
 
-.swiper-wrapper {
+.hero-swiper-wrapper {
   margin-bottom: 24px;
   cursor: grab;
 }
 
-.swiper-slide {
+.hero-swiper-slide {
   position: relative;
   height: auto;
 }
 
-.swiper-slide picture,
-.swiper-slide img {
+.hero-swiper-slide picture,
+.hero-swiper-slide img {
   aspect-ratio: auto;
 }
 
