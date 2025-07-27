@@ -2,7 +2,7 @@ import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay, Keyboard } from 'swiper/modules';
 import 'swiper/css';
 
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.hero-swiper', {
   modules: [Navigation, Pagination, Autoplay, Keyboard],
   direction: 'horizontal',
   loop: false,
@@ -20,14 +20,14 @@ const swiper = new Swiper('.swiper', {
   },
 
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.hero-swiper-button-next',
+    prevEl: '.hero-swiper-button-prev',
   },
 
   on: {
     slideChange(swiper) {
-      const nextBtn = document.querySelector('.swiper-button-next');
-      const prevBtn = document.querySelector('.swiper-button-prev');
+      const nextBtn = document.querySelector('.hero-swiper-button-next');
+      const prevBtn = document.querySelector('.hero-swiper-button-prev');
 
       swiper.isEnd
         ? nextBtn?.classList.add('is-disabled')
@@ -39,7 +39,7 @@ const swiper = new Swiper('.swiper', {
     },
 
     init(swiper) {
-      const prevBtn = document.querySelector('.swiper-button-prev');
+      const prevBtn = document.querySelector('.hero-swiper-button-prev');
       swiper.isBeginning
         ? prevBtn?.classList.add('is-disabled')
         : prevBtn?.classList.remove('is-disabled');
@@ -47,11 +47,9 @@ const swiper = new Swiper('.swiper', {
   },
 });
 document
-  .querySelectorAll('.swiper-button-prev, .swiper-button-next')
+  .querySelectorAll('.hero-swiper-button-prev, .hero-swiper-button-next')
   .forEach(button => {
     button.addEventListener('mouseup', () => {
       button.blur();
     });
   });
-
-export default swiper;

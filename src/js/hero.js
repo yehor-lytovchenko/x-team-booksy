@@ -85,7 +85,7 @@ const wrapperContainer = document.querySelector('.hero-js');
 const generateMarkup = arr => {
   return arr
     .map(slide => {
-      return `<li class="swiper-slide">
+      return `<li class="swiper-slide hero-swiper-slide">
       <picture>
       <source media="(min-width: 1440px)" type="image/webp" srcset="${slide.images.desktop.src} 1x, ${slide.images.desktop.src2x} 2x">
       <source media="(min-width: 768px)" type="image/webp" srcset="${slide.images.tablet.src} 1x, ${slide.images.tablet.src2x} 2x">
