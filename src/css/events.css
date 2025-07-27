@@ -235,6 +235,9 @@
 /* Desctop styles */
 
 @media screen and (min-width: 1440px) {
+  .events-swiper-controls {
+    display: none;
+  }
   .events-top-content {
     width: 768px;
     height: 168px;
