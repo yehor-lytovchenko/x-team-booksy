@@ -7,6 +7,8 @@ import 'swiper/css/pagination';
 document.addEventListener('DOMContentLoaded', () => {
   const swiper = new Swiper('.events-swiper', {
     modules: [Navigation, Pagination],
+    wrapperClass: 'events-swiper-wrapper',
+  slideClass: 'events-swiper-slide',
     loop: false,
     spaceBetween: 20,
     slidesPerView: 1,
@@ -27,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     pagination: {
-      el: 'events-swiper-pagination',
+      el: '.events-swiper-pagination',
       clickable: true,
     },
   });

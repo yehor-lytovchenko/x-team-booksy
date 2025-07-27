@@ -109,7 +109,7 @@
   bottom: 0 !important;
 }
 
-.events-swiper-pagination-bullet {
+.events-swiper-pagination > .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   background: var(--primary-color) !important;
@@ -118,76 +118,71 @@
   transition: 0.3s;
 }
 
-.events-swiper-pagination-bullet-active {
+.events-swiper-pagination > .swiper-pagination-bullet-active {
   background: var(--primary-color) !important;
   opacity: 1;
 }
 
 /* Mobile styles */
 
-@media screen and (max-width: 767.98px) {
-  .events-container {
-    padding-top: 64px;
-    padding-bottom: 64px;
-    color: var(--primary-color);
-    font-family: var(--main-font);
-  }
+#events-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  color: var(--primary-color);
+  font-family: var(--main-font);
+}
 
-  .events-top-content {
-    margin-bottom: 32px;
-  }
+.events-top-content {
+  margin-bottom: 32px;
+}
 
-  .events-pre-header {
-    margin-bottom: 16px;
-    font-weight: 600;
-  }
+.events-pre-header {
+  margin-bottom: 16px;
+  font-weight: 600;
+}
 
-  .events-header {
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-  }
+.events-header {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
 
-  .events-desc {
-    font-size: 18px;
-  }
+.events-desc {
+  font-size: 18px;
+}
 
-  .events-img {
-    margin-bottom: 24px;
-  }
+.events-img {
+  margin-bottom: 24px;
+}
 
-  .events-item-title {
-    font-weight: 600;
-    font-size: 18px;
-  }
+.events-item-title {
+  font-weight: 600;
+  font-size: 18px;
+}
 
-  .events-item-place {
-    margin-bottom: 8px;
-  }
+.events-item-place {
+  margin-bottom: 8px;
+}
 
-  .events-item-desc {
-    margin-bottom: 16px;
-  }
+.events-item-desc {
+  margin-bottom: 16px;
+}
 
-  .events-register-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding-bottom: 38px;
-  }
+.events-register-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 38px;
+}
 
-  .events-register-link:hover {
-  }
+.events-register-link svg {
+  vertical-align: middle;
+}
 
-  .events-register-link svg {
-    vertical-align: middle;
-  }
-
-  .events-register-link-arrow {
-    display: block;
-  }
+.events-register-link-arrow {
+  display: block;
 }
 
 /* Tablet styles */
