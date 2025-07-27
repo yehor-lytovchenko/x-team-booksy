@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const swiper = new Swiper('.events-swiper', {
     modules: [Navigation, Pagination],
     wrapperClass: 'events-swiper-wrapper',
-  slideClass: 'events-swiper-slide',
+    slideClass: 'events-swiper-slide',
     loop: false,
     spaceBetween: 20,
     slidesPerView: 1,
@@ -34,9 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   });
 
-
-  /* Randome date function */
-
+  /* Random date function */
 
   const timeElements = document.querySelectorAll('.events-item-time');
   timeElements.forEach(el => {
@@ -46,7 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getRandomFutureTime(daysAhead = 30) {
   const now = new Date();
-  const future = new Date(now.getTime() + Math.random() * daysAhead * 24 * 60 * 60 * 1000);
+  const future = new Date(
+    now.getTime() + Math.random() * daysAhead * 24 * 60 * 60 * 1000
+  );
 
   const options = {
     month: 'long',
