@@ -6,7 +6,7 @@
 }
 
 .article-info {
-  width: 343px;
+  width: 100%;
   margin-bottom: 32px;
 }
 
@@ -30,17 +30,13 @@
   display: block;
   width: 100%;
   height: auto;
-  max-width: 343px;
+  max-width: 372px;
   object-fit: cover;
 }
 
 @media screen and (min-width: 768px) {
-  .article-info {
-    width: 704px;
-  }
-
   .article-img {
-    max-width: 704px;
+    max-width: 768px;
   }
 }
 
@@ -60,6 +56,6 @@
   }
 
   .article-img {
-    max-width: 640px;
+    width: 640px;
   }
 }
