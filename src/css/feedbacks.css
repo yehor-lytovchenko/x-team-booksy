@@ -10,29 +10,19 @@
 }
 
 .feedbacks-title {
-    font-family: var(--main-font);
     font-weight: 600;
     font-size: 36px;
     line-height: 120%;
     letter-spacing: -0.01em;
-    color: var(--primary-color);
 }
 
 .feedbacks-text {
-    font-family: var(--main-font);
-    font-weight: 400;
     font-size: 18px;
-    line-height: 150%;
-    color: var(--primary-color);
     margin-top: 24px;
 }
 
 .feedbacks-text-item {
-    font-family: var(--main-font);
-    font-weight: 400;
     font-size: 18px;
-    line-height: 150%;
-    color: var(--primary-color);
 }
 
 .customer-container {
@@ -50,11 +40,7 @@
 }
 
 .customer-title {
-    font-family: var(--main-font);
     font-weight: 600;
-    font-size: 16px;
-    line-height: 150%;
-    color: var(--primary-color);
 }
 
 .swiper-feedback {
@@ -148,23 +134,20 @@
 .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background: #000;
+    background: var(--primary-color);
     border-radius: 50%;
     opacity: 0.5;
     transition: 0.3s;
 }
 
 .swiper-pagination-bullet-active {
-    background: #000;
+    background: var(--primary-color);
     opacity: 1;
 }
 
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0;
 }
-
-
-
 
 /* Styles for Tablet devices */
 @media only screen and (max-width: 767px) {
