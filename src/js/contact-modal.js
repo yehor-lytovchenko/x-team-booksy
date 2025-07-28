@@ -1,5 +1,5 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const modal = document.getElementById('modal');
 const backdrop = document.getElementById('modalBackdrop');
@@ -61,7 +61,7 @@ const openButtons = document.querySelectorAll('.open-modal-btn');
 const subtitleEl = modal.querySelector('.modal-subtitle');
 
 openButtons.forEach(btn => {
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', e => {
     const subtitle = btn.dataset.subtitle || '';
     subtitleEl.textContent = subtitle;
     openModal();
@@ -86,13 +86,13 @@ function closeModal() {
 // ==============================
 
 closeBtn.addEventListener('click', closeModal);
-backdrop.addEventListener('click', (e) => {
+backdrop.addEventListener('click', e => {
   if (e.target === backdrop) {
     closeModal();
   }
 });
 
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
 
@@ -100,7 +100,7 @@ document.addEventListener('keydown', (e) => {
   input.addEventListener('input', saveToStorage);
 });
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', e => {
   e.preventDefault();
 
   const name = nameInput.value.trim();
@@ -108,11 +108,11 @@ form.addEventListener('submit', (e) => {
 
   // Clear previous errors
   [nameInput, emailInput].forEach(input => {
-  input.addEventListener('input', () => {
-    input.classList.remove('error');
-    saveToStorage();
+    input.addEventListener('input', () => {
+      input.classList.remove('error');
+      saveToStorage();
+    });
   });
-});
 
   let hasError = false;
 
@@ -128,8 +128,8 @@ form.addEventListener('submit', (e) => {
 
     hasError = true;
   }
-    
-    // Email validation includes @
+
+  // Email validation includes @
   if (email && !email.includes('@')) {
     iziToast.error({
       title: 'Invalid Email',
@@ -157,7 +157,6 @@ form.addEventListener('submit', (e) => {
     form.reset();
     clearStorage();
     closeModal();
-
   } catch (error) {
     iziToast.error({
       title: 'Error',
@@ -166,4 +165,3 @@ form.addEventListener('submit', (e) => {
     });
   }
 });
-

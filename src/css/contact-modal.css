@@ -21,8 +21,6 @@ body.modal-open {
   width: 90%;
   max-width: 343px;
   background: var(--main-background);
-  color: var(--primary-color);
-  font: var(--main-font);
   transform: translate(-50%, -50%);
   transition:
     transform var(--primary-transition),
@@ -189,7 +187,7 @@ textarea.error::placeholder {
   }
 }
 
-/* Desctop styles */
+/* Desktop styles */
 
 @media screen and (min-width: 1440px) {
   .modal {
