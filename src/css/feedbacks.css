@@ -44,7 +44,7 @@
 }
 
 .swiper-feedback {
-  width: 341px;
+  width: auto;
   margin: 80px auto 0 auto;
   height: 314px;
   user-select: none;
@@ -166,7 +166,7 @@
   }
 
   .swiper-feedback {
-    width: 705px;
+    width: auto;
     height: 244px;
   }
 
@@ -203,7 +203,7 @@
   }
 
   .swiper-feedback {
-    width: 1312px;
+    width: auto;
     margin-top: 80px;
   }
 
