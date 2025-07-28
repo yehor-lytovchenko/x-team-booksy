@@ -2,9 +2,12 @@
 const burgerEl = document.querySelector('#burger-button')
 const menuEl = document.querySelector('#mobile_menu')
 const navListEl = document.querySelector('#nav-links')
+export const body = document.body;
+
 // ? Відкриває мобільне меню
 const onBurgerClick = (e) => {
     menuEl.classList.add("mob-menu-open")
+    body.classList.add("no-scroll")
 }
 
 // ? Закриває мобільне меню
@@ -14,7 +17,8 @@ const closeMenuHandler = (e) => {
     const navLink = e.target.closest('.nav-list-mob-link');
     // ! null = false, якщо хоча б один елемент наявний, провірка проходить далі
   if (button || navLink) {
-    menuEl.classList.remove('mob-menu-open');
+      menuEl.classList.remove('mob-menu-open');
+      body.classList.remove("no-scroll")
   }
 }
 
