@@ -151,6 +151,11 @@
   margin-bottom: 24px;
 }
 
+.events-item {
+  display: flex !important;
+  flex-direction: column;
+}
+
 .events-item-title {
   font-size: 24px;
   line-height: 1.4;
