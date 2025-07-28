@@ -180,6 +180,12 @@ textarea.error::placeholder {
     width: 342px;
     margin: 0 auto;
   }
+
+  .submit-btn:hover,
+  .submit-btn:focus,
+  .submit-btn:active {
+    width: 342px;
+  }
 }
 
 /* Desctop styles */
