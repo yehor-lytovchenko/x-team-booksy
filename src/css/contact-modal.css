@@ -8,7 +8,7 @@ body.modal-open {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.25);
-  z-index: 999;
+  z-index: 99999;
   display: none;
 }
 
@@ -27,7 +27,7 @@ body.modal-open {
   transition:
     transform var(--primary-transition),
     opacity var(--primary-transition);
-  z-index: 1000;
+  z-index: 100000;
   padding: 64px 16px;
   border-radius: 16px;
   display: none;
