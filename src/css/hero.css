@@ -7,7 +7,6 @@
   fill: #000;
   transition: background-color var(--primary-transition);
 }
-
 .hero-swiper-button:hover,
 .hero-swiper-button:focus {
   background-color: var(--arrows-btn-hover);
@@ -100,7 +99,6 @@
 }
 
 .hero-title-wrapper {
-  padding-bottom: 32px;
   display: flex;
   flex-direction: column;
 }
