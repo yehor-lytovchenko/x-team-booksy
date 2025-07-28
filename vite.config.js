@@ -16,14 +16,6 @@ export default defineConfig(({ command }) => {
     css: {
       postcss: {
         plugins: [
-          viteStaticCopy({
-            targets: [
-              {
-                src: 'src/img', // папка с картинками
-                dest: 'img', // папка назначения в dist
-              },
-            ],
-          }),
           postcssImport(),
           postcssSortMediaQueries({
             sort: 'mobile-first',
@@ -58,6 +50,17 @@ export default defineConfig(({ command }) => {
       outDir: '../dist',
       emptyOutDir: true,
     },
-    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
+    plugins: [
+      injectHTML(),
+      FullReload(['./src/**/**.html']),
+      viteStaticCopy({
+        targets: [
+          {
+            src: 'img/*', // папка с картинками
+            dest: 'img', // папка назначения в dist
+          },
+        ],
+      }),
+    ],
   };
 });
