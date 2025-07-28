@@ -1,0 +1,240 @@
+/* Styles for Mobile devices */
+.feedbacks-section {
+    padding: 64px 16px;
+    height: 766px;
+    background: var(--main-background);
+}
+
+.feedbacks-container {
+    height: 164px;
+}
+
+.feedbacks-title {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 120%;
+    letter-spacing: -0.01em;
+    color: var(--primary-color);
+}
+
+.feedbacks-text {
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--primary-color);
+    margin-top: 24px;
+}
+
+.feedbacks-text-item {
+    font-family: var(--main-font);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    color: var(--primary-color);
+}
+
+.customer-container {
+    display: flex;
+    gap: 16px;
+    width: 277px;
+    height: 48px;
+    margin-top: 24px;
+}
+
+.customer-img {
+    border-radius: 100%;
+    height: 48px;
+    width: 48px;
+}
+
+.customer-title {
+    font-family: var(--main-font);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--primary-color);
+}
+
+.swiper-feedback {
+    width: 341px;
+    margin: 0 auto;
+    height: 314px;
+    user-select: none;
+    margin-top: 80px;
+    touch-action: pan-x pan-y;
+
+}
+
+.swiper-wrapper-feedback {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    transition-property: transform;
+}
+
+.swiper-slide-feedback {
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    padding: 32px;
+    box-sizing: border-box;
+    height: 314px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-custom-swiper-button-prev,
+.feedback-custom-swiper-button-next {
+    border: 1px solid var(--btn-normal-bcg-color);
+    background: var(--btn-normal-bcg-color);
+    fill: #fff;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.feedback-custom-swiper-button-prev:hover,
+.feedback-custom-swiper-button-next:hover,
+.feedback-custom-swiper-button-prev:focus,
+.feedback-custom-swiper-button-next:focus {
+    border: 1px solid rgb(11, 5, 0, 0.15);
+    background: var(--arrows-btn-hover);
+    fill: #000;
+}
+
+.feedback-custom-swiper-button-prev:active,
+.feedback-custom-swiper-button-next:active {
+    border: 1px solid var(--arrows-btn-active);
+    background: var(--arrows-btn-active);
+    fill: #fff;
+}
+
+.feedback-custom-swiper-button-disabled {
+    background: var(--btn-normal-bcg-color);
+    opacity: 0.2;
+    pointer-events: none;
+    cursor: default;
+    fill: rgba(11, 5, 0, 0.7);
+}
+
+.feedback-custom-swiper-button-next svg,
+.feedback-custom-swiper-button-prev svg {
+    pointer-events: none;
+}
+
+.swiper-buttons-container {
+    display: flex;
+    gap: 16px;
+}
+
+.swiper-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+.custom-swiper-pagination {
+    display: flex;
+    gap: 8px;
+}
+
+.swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background: #000;
+    opacity: 1;
+}
+
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0;
+}
+
+
+
+
+/* Styles for Tablet devices */
+@media only screen and (max-width: 767px) {
+    .swiper-slide-feedback:nth-child(n+5) {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .feedbacks-section {
+        padding-left: 32px;
+        padding-right: 32px;
+        height: 626px;
+    }
+
+    .feedbacks-container {
+        height: 94px;
+    }
+
+    .swiper-feedback {
+        width: 705px;
+        height: 244px;
+    }
+
+    .swiper-wrapper-feedback {
+        width: auto;
+    }
+
+    .swiper-slide-feedback {
+        width: 340px;
+        height: 244px;
+    }
+
+}
+
+/* Styles for Desktop devices */
+@media only screen and (max-width: 1199px) {
+    .swiper-slide-feedback:nth-child(n+6) {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .feedbacks-section {
+        padding-left: 64px;
+        padding-right: 64px;
+        height: 614px;
+    }
+
+    .feedbacks-container {
+        height: 109px;
+    }
+
+    .feedbacks-title {
+        font-size: 48px;
+    }
+
+    .swiper-feedback {
+        width: 1312px;
+        margin-top: 80px;
+    }
+
+    .swiper-wrapper-feedback {
+        width: auto;
+        height: 217px;
+    }
+
+    feedback.swiper-slide-feedback {
+        width: 421px;
+        height: 217px;
+    }
+}
+
