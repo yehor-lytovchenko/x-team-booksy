@@ -10,6 +10,10 @@
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+.no-scroll {
+  overflow-y: hidden;
+}
+
 .header {
   width: 100%;
   max-height: 64px;
