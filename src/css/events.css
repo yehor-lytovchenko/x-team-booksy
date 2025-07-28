@@ -179,6 +179,7 @@
   background: none;
   height: auto;
   transition: opacity var(--primary-transition);
+  width: fit-content;
 }
 
 .events-register-link:hover,
