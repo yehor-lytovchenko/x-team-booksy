@@ -1,0 +1,55 @@
+<!-- Backdrop -->
+<div class="modal-backdrop" id="modalBackdrop"></div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <button class="modal-close" id="modalClose" aria-label="Close modal">
+    <svg class="modal-close-button-icon" width="32" height="32">
+      <use
+        class="modal-close-button-icon-use"
+        href="./img/icons.svg#icon-x"
+      ></use>
+    </svg>
+  </button>
+  <h2 class="modal-title">Register</h2>
+  <p class="modal-subtitle"></p>
+
+  <form id="registerForm" novalidate>
+    <div class="form-group">
+      <label for="name" class="form-label">Name*</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="form-input"
+        placeholder="Ann"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="form-label">Email*</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-input"
+        placeholder="hello@booksy.com"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="message" class="form-label">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        class="form-input"
+        rows="5"
+        placeholder="Type your message..."
+      ></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Register</button>
+  </form>
+</div>
