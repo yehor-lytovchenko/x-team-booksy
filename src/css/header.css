@@ -50,8 +50,6 @@
     column-gap: 32px;
   }
   .nav-list-link {
-    font-family: var(--main-font);
-    color: var(--primary-color);
     padding-top: 24px;
     padding-bottom: 24px;
   }
