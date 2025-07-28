@@ -8,35 +8,34 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const email = input.value.trim();
-
-    if (email === '') {
-      input.classList.add('error');
-
-      iziToast.error({
-        title: 'Error',
-        message: 'Email field cannot be empty',
-        position: 'topRight',
-        timeout: 4000,
-      });
-      return;
-    }
+    input.value = input.value.trim();
 
     if (!input.checkValidity()) {
       input.classList.add('error');
 
+      let errorMessage = 'Please enter a valid email address';
+
+      if (input.validity.valueMissing) {
+        errorMessage = 'Email field cannot be empty';
+      } else if (input.validity.typeMismatch) {
+        errorMessage = 'Please enter a valid email format (example@domain.com)';
+      } else if (input.validity.patternMismatch) {
+        errorMessage =
+          'Email format not supported. Use simple format like name@domain.com';
+      }
+
       iziToast.error({
         title: 'Error',
-        message: 'Please enter a valid email format (example@domain.com)',
+        message: errorMessage,
         position: 'topRight',
         timeout: 4000,
       });
       return;
     }
 
-    const existEmails =
+    const existingEmails =
       JSON.parse(localStorage.getItem('subscribedEmails')) || [];
-    if (existEmails.some(item => item.email === email)) {
+    if (existingEmails.some(item => item.email === input.value)) {
       input.classList.add('error');
 
       iziToast.warning({
@@ -48,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    saveEmailToStorage(email);
+    saveEmailToStorage(input.value);
 
     input.value = '';
 
