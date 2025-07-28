@@ -52,9 +52,7 @@
   row-gap: 40px;
 }
 .nav-list-mob-link {
-  font-family: var(--main-font);
   font-weight: 500;
   font-size: 20px;
-  color: var(--primary-color);
   padding: 10px;
 }

@@ -4,7 +4,6 @@
   position: relative;
   padding: 40px 0;
 }
-
 .events-swiper-slide {
   height: auto;
   margin-right: 20px;
@@ -125,8 +124,6 @@
 #events-section {
   padding-top: 64px;
   padding-bottom: 64px;
-  color: var(--primary-color);
-  font-family: var(--main-font);
 }
 
 .events-top-content {
@@ -155,7 +152,6 @@
 }
 
 .events-item-title {
-  font-weight: 400;
   font-size: 24px;
   line-height: 1.4;
   letter-spacing: -0.01em;
@@ -201,7 +197,7 @@
 
 @media screen and (min-width: 768px) {
   .events-item {
-    display: flex !important;
+    display: flex;
     flex-direction: column;
   }
   .events-register-link {
@@ -242,7 +238,7 @@
   }
 }
 
-/* Desctop styles */
+/* Desktop styles */
 
 @media screen and (min-width: 1440px) {
   .events-swiper-controls {
