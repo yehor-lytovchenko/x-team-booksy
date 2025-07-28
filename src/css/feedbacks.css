@@ -61,7 +61,7 @@
 }
 
 .swiper-slide-feedback {
-    border: 1px solid #ccc;
+    border: 1px solid #0B050026;
     border-radius: 16px;
     padding: 32px;
     box-sizing: border-box;
@@ -134,14 +134,14 @@
 .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background: var(--primary-color);
+    background: #000000;
     border-radius: 50%;
     opacity: 0.5;
     transition: 0.3s;
 }
 
 .swiper-pagination-bullet-active {
-    background: var(--primary-color);
+    background: #000000;
     opacity: 1;
 }
 
