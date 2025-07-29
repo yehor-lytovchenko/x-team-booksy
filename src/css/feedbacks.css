@@ -50,6 +50,7 @@
   background: var(--arrows-btn-hover);
   border: 1px solid rgba(11, 5, 0, 0.15);
   color: var(--primary-color);
+  fill: var(--primary-color);
 }
 
 .feedback-custom-swiper-button-prev:active,
@@ -60,11 +61,12 @@
 
 .feedback-custom-swiper-button-next.feedback-custom-swiper-button-disabled,
 .feedback-custom-swiper-button-prev.feedback-custom-swiper-button-disabled {
-  background: var(--arrows-btn-normal);
+
   opacity: 0.2;
   pointer-events: none;
   cursor: default;
-  filter: grayscale(70%);
+  background-color: rgba(225, 93, 5, 0.2);
+  border: 1px solid var(--primary-color);
 }
 
 .feedback-custom-swiper-button-next svg,
@@ -90,7 +92,6 @@
 
 .feedback-custom-swiper-button-disabled svg {
   fill: var(--primary-color);
-  opacity: 0.2;
 }
 
 .feedback-custom-swiper-button-prev::after,
