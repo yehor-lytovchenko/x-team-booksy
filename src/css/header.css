@@ -22,8 +22,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: inherit;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
 }
-.header >* {
+
+.scrolled-header {
+  background-color: var(--footer-backgroud);
+}
+
+.header-spacer {
+  height: 64px;
+}
+
+.header > * {
   flex: 1;
 }
 .nav-header {
