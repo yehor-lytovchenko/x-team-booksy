@@ -138,12 +138,21 @@ justify-content: space-between;
 }
 
 /* Styles for Mobile devices */
+@media only screen and (max-width: 767px) {
 .main-feedback-swiper-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 343px;
-  width: 100%;
+    width: 288px;
+  }
 }
+
+@media (min-width: 375px) {
+.main-feedback-swiper-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 343px;
+    width: 100%;
+  }
+}
+
 .main-feedback-container.container {
   padding: 0;
 }
