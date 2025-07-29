@@ -40,7 +40,6 @@ async function handleShowMore() {
 
   createTopBooksList(nextBooks);
 
-  // Обновляем счетчик после добавления новых книг
   await updateBooksCounter();
 
   // If reached end of list
