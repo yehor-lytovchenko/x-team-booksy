@@ -209,6 +209,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .feedbacks-title {
+    width: auto;
+  }
   .main-feedback-container.container {
     padding-left: 32px;
     padding-right: 32px;
