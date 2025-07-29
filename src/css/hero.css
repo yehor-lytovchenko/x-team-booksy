@@ -40,6 +40,7 @@
 .hero-swiper-button-wrapper {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   column-gap: 16px;
   margin-bottom: 24px;
 }
@@ -105,7 +106,7 @@
 .hero-title-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .hero-title {
