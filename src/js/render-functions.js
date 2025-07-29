@@ -161,6 +161,7 @@ async function createCategoryBooksList(arr) {
 export async function createShowCase(count, total) {
   showCountEl.innerHTML = '';
   const markup = `<p>Showing ${count} of ${total}</p>`;
+  console.log(count, total);
   showCountEl.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -249,7 +250,7 @@ async function initializeCategories() {
 async function updateBooksCounter(currentCount) {
   try {
     const totalCount = await getTotalBooksCount();
-    createShowCase(currentCount, totalCount);
+    await createShowCase(currentCount, totalCount);
   } catch (error) {
     iziToast.error({
       title: 'Error',
