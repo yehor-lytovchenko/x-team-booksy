@@ -13,7 +13,7 @@
 .swiper-slide-feedback {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+justify-content: space-between;
   gap: 24px;
   padding: 32px;
   border: var(--inputs-border);
@@ -106,10 +106,6 @@
   justify-content: space-between;
   margin-top: 32px;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 32px;
   height: 48px;
   padding-right: 0 !important;
 }
@@ -118,7 +114,6 @@
   display: flex;
   gap: 8px;
   position: relative !important;
-  display: flex;
   gap: 8px;
   margin-right: 0 !important;
 }
