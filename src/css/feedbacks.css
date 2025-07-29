@@ -159,7 +159,6 @@
   justify-content: flex-start;
   flex-direction: column;
   padding: 64px 16px;
-  width: 375px;
   background: var(--main-background);
   overflow-x: hidden;
   color: var(--primary-color);
@@ -215,6 +214,12 @@
   font-size: 16px;
 }
 
+@media only screen and (max-width: 767px) {
+  .swiper-slide-feedback:nth-child(n+5) {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 768px) {
 
   .main-feedback-container.container {
@@ -256,6 +261,11 @@
 }
 
 /* Styles for Desktop devices */
+@media only screen and (max-width: 1199px) {
+  .swiper-slide-feedback:nth-child(n+6) {
+    display: none;
+  }
+}
 
 @media only screen and (min-width: 1440px) {
   .main-feedback-swiper-wrapper {
