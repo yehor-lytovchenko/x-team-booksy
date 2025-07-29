@@ -4,6 +4,7 @@ import {
   getTotalBooks,
   getCountBooksByCategory,
 } from './api.js';
+import { getPaginationValue, setPaginationValue } from './books.js';
 import iziToast from 'izitoast';
 
 // DOM elements
@@ -69,6 +70,8 @@ export async function displayBooks(books, options = {}) {
     const booksPerScreen = getBooksPerScreen();
     const initialBooks = filteredBooks.slice(0, booksPerScreen);
 
+    setPaginationValue(initialBooks.length);
+
     // Display books
     if (initialBooks.length > 0) {
       createTopBooksList(initialBooks);
@@ -82,7 +85,7 @@ export async function displayBooks(books, options = {}) {
     }
 
     // Update counter and manage "Show more" button
-    await updateBooksCounter(filteredBooks.length);
+    await updateBooksCounter();
     toggleShowMoreButton(filteredBooks.length > booksPerScreen);
   } catch (error) {
     iziToast.error({
@@ -246,10 +249,12 @@ async function initializeCategories() {
   }
 }
 
-async function updateBooksCounter(currentCount) {
+async function updateBooksCounter() {
   try {
     const totalCount = await getTotalBooksCount();
-    createShowCase(currentCount, totalCount);
+
+    const renderedCount = getPaginationValue();
+    createShowCase(renderedCount, totalCount);
   } catch (error) {
     iziToast.error({
       title: 'Error',
@@ -258,6 +263,8 @@ async function updateBooksCounter(currentCount) {
     });
   }
 }
+
+export { updateBooksCounter };
 
 function toggleShowMoreButton(shouldShow) {
   if (shouldShow) {
