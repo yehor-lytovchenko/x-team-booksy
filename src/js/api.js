@@ -66,8 +66,6 @@ export async function getBooksByCategory(category) {
   }
 }
 
-getBooksByCategory('Combined Print & E-Book Fiction');
-
 // Gets book information by ID
 export async function getBooksById(id) {
   try {

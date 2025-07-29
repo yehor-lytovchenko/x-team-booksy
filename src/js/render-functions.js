@@ -102,7 +102,7 @@ export function createTopBooksList(books) {
   const markup = books
     .map(
       book => `
-        <li class="top-book-item">
+        <li class="top-book-item" id="${book._id}">
             <img
               class="top-book-img"
               src="${book.book_image}"
