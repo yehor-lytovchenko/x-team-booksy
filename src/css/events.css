@@ -41,11 +41,11 @@
 
 .events-swiper-button-next.events-swiper-button-disabled,
 .events-swiper-button-prev.events-swiper-button-disabled {
-  background: var(--arrows-btn-normal);
   opacity: 0.2;
   pointer-events: none;
   cursor: default;
-  filter: grayscale(70%);
+  background-color: rgba(225, 93, 5, 0.2);
+  border: 1px solid var(--primary-color);
 }
 
 .events-swiper-arrow {
@@ -68,7 +68,6 @@
 
 .events-swiper-button-disabled .events-swiper-arrow {
   fill: var(--primary-color);
-  opacity: 0.2;
 }
 
 .events-swiper-button-prev::after,

@@ -1,3 +1,7 @@
+.hero-section {
+  padding-bottom: 32px;
+}
+
 .hero-swiper-button {
   border: 1px solid rgba(11, 5, 0, 0.15);
   padding: 12px;
@@ -36,6 +40,7 @@
 .hero-swiper-button-wrapper {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   column-gap: 16px;
   margin-bottom: 24px;
 }
@@ -101,6 +106,7 @@
 .hero-title-wrapper {
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
 }
 
 .hero-title {
@@ -146,6 +152,11 @@
   .hero-title {
     width: 540px;
   }
+
+  .hero-swiper-button-wrapper {
+    column-gap: 24px;
+    margin: 0;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -175,7 +186,7 @@
 
   ul > li:nth-child(3) .hero-text,
   ul > li:nth-child(4) .hero-text {
-    width: 522px;
+    width: 545px;
   }
 
   .hero-link {
