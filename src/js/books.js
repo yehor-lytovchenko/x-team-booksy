@@ -1,4 +1,4 @@
-import { getBooksByCategory, getTopBooks, getTotalBooks } from './api.js';
+import { getBooksByCategory, getTotalBooks } from './api.js';
 import {
   displayBooks,
   getBooksPerScreen,
@@ -15,37 +15,65 @@ const showMoreBtnEl = document.querySelector('.show-more-btn');
 
 const perPage = 4;
 
-// Show more button
-const onClick = e => {
+// Button show more
+async function handleShowMore() {
   showMoreBtnEl.blur();
 
   incrementPage();
   const page = getPage();
-
   const booksForScreen = getBooksPerScreen();
+
   const start = booksForScreen + (page - 2) * perPage;
   const end = start + perPage;
   const nextBooks = allTopBooks.slice(start, end);
 
   createTopBooksList(nextBooks);
 
+  // If reached end of list
   if (end >= allTopBooks.length) {
     hideShowMoreBtn();
-    iziToast.error({
-      message: "We're sorry, but you've reached the end of search results.",
+    iziToast.info({
+      message: "You've reached the end of the book list.",
       position: 'topRight',
     });
   }
-};
-showMoreBtnEl.addEventListener('click', onClick);
+}
 
-// Select category from dropdown menu
-async function onClickedCategory(e) {
-  const selectedCategory = e.target.textContent.trim();
+// Filter valid categories
+function filterValidCategories(category) {
+  return (
+    category &&
+    category.trim() !== '' &&
+    category.trim() !== ' ' &&
+    category.toLowerCase() !== 'undefined' &&
+    category.toLowerCase() !== 'null'
+  );
+}
 
+// Select dropdown
+async function handleCategoryClick(event) {
+  const categoryItem = event.target.closest('.dropdown-item');
+  if (!categoryItem) return;
+
+  const selectedCategory = categoryItem.textContent.trim();
+
+  // Filter out invalid categories
+  if (!filterValidCategories(selectedCategory)) {
+    iziToast.warning({
+      title: 'Warning',
+      message: 'Invalid category selected',
+      position: 'topRight',
+    });
+    return;
+  }
+
+  // Update button text
   const btnText = document.querySelector('.dropdown-btn .dropdown-text');
-  if (btnText) btnText.textContent = selectedCategory;
+  if (btnText) {
+    btnText.textContent = selectedCategory;
+  }
 
+  // Get books for selected category
   let books;
   if (selectedCategory === 'All categories') {
     books = await getTotalBooks();
@@ -53,10 +81,22 @@ async function onClickedCategory(e) {
     books = await getBooksByCategory(selectedCategory);
   }
 
-  displayBooks(books, false, selectedCategory);
+  // Display books
+  await displayBooks(books, {
+    selectedCategory: selectedCategory,
+    resetContent: true,
+  });
 
+  // Close dropdown
   const dropdown = document.querySelector('#categoryDropdown');
   dropdown.classList.remove('open');
 }
 
-dropdownMenuEl.addEventListener('click', onClickedCategory);
+// Event listeners
+if (showMoreBtnEl) {
+  showMoreBtnEl.addEventListener('click', handleShowMore);
+}
+
+if (dropdownMenuEl) {
+  dropdownMenuEl.addEventListener('click', handleCategoryClick);
+}

@@ -1,11 +1,12 @@
-import axios, { all } from 'axios';
+import axios from 'axios';
+import iziToast from 'izitoast';
 
 axios.defaults.baseURL = 'https://books-backend.p.goit.global/books/';
 
 let categoriesCache = null;
 let totalBooksCache = null;
 
-// Получает список категорий книг
+// Gets list of book categories
 export async function getCategoryList() {
   if (categoriesCache !== null) {
     return categoriesCache;
@@ -13,26 +14,42 @@ export async function getCategoryList() {
 
   try {
     const response = await axios.get('category-list');
-    categoriesCache = response.data;
-    return response.data;
+    // Filter out empty or invalid categories
+    const filteredCategories = response.data.filter(
+      category =>
+        category &&
+        category.list_name &&
+        category.list_name.trim() !== '' &&
+        category.list_name.trim() !== ' '
+    );
+    categoriesCache = filteredCategories;
+    return filteredCategories;
   } catch (error) {
-    console.log(error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to load categories',
+      position: 'topRight',
+    });
     return [];
   }
 }
 
-// Получает список топовых книг
+// Gets list of top books
 export async function getTopBooks() {
   try {
     const response = await axios.get('top-books');
     return response.data;
   } catch (error) {
-    console.log(error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to load top books',
+      position: 'topRight',
+    });
     return [];
   }
 }
 
-// Получает книги по категории
+// Gets books by category
 export async function getBooksByCategory(category) {
   try {
     const encodedCategory = encodeURIComponent(category);
@@ -40,24 +57,33 @@ export async function getBooksByCategory(category) {
 
     return response.data;
   } catch (error) {
-    console.log(error);
+    iziToast.error({
+      title: 'Error',
+      message: `Failed to load books for category: ${category}`,
+      position: 'topRight',
+    });
     return [];
   }
 }
 
-// Получает информацию о книге по ID
+getBooksByCategory('Combined Print & E-Book Fiction');
+
+// Gets book information by ID
 export async function getBooksById(id) {
   try {
     const response = await axios.get(id);
-
     return response.data;
   } catch (error) {
-    console.log(error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to load book details',
+      position: 'topRight',
+    });
     return [];
   }
 }
 
-// Считает общее количество книг во всех категориях
+// Gets all unique books from all categories
 export async function getTotalBooks() {
   if (totalBooksCache !== null) {
     return totalBooksCache;
@@ -77,24 +103,36 @@ export async function getTotalBooks() {
 
     const allBooks = booksDataArrays.flat();
 
-    const uniqueTitle = new Set();
-    const uniqueBooks = allBooks.filter(book => {
-      if (!book.title) return false;
-      const normalizeTitle = book.title.trim().toLowerCase();
-      if (uniqueTitle.has(normalizeTitle)) return false;
-      uniqueTitle.add(normalizeTitle);
+    // Filter duplicates and books with zero price
+    const uniqueTitles = new Set();
+    const filteredBooks = allBooks.filter(book => {
+      // Remove books without title or with price 0.00
+      if (!book.title || !book.price || parseFloat(book.price) <= 0) {
+        return false;
+      }
+
+      const normalizedTitle = book.title.trim().toLowerCase();
+      if (uniqueTitles.has(normalizedTitle)) {
+        return false;
+      }
+
+      uniqueTitles.add(normalizedTitle);
       return true;
     });
 
-    totalBooksCache = uniqueBooks;
-    return uniqueBooks;
+    totalBooksCache = filteredBooks;
+    return filteredBooks;
   } catch (error) {
-    console.log(error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Failed to load all books',
+      position: 'topRight',
+    });
     return [];
   }
 }
 
-// Считает общее количество книг в определенной категории
+// Counts number of books in specific category
 export async function getCountBooksByCategory(category) {
   if (!category || category.trim() === '') {
     return 0;
@@ -105,7 +143,11 @@ export async function getCountBooksByCategory(category) {
     const response = await axios.get(`category?category=${encodedCategory}`);
     return response.data.length;
   } catch (error) {
-    console.log(error);
-    return [];
+    iziToast.error({
+      title: 'Error',
+      message: `Failed to count books in category: ${category}`,
+      position: 'topRight',
+    });
+    return 0;
   }
 }

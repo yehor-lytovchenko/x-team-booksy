@@ -4,19 +4,24 @@ import {
   getTotalBooks,
   getCountBooksByCategory,
 } from './api.js';
+import iziToast from 'izitoast';
 
+// DOM elements
 export const topBooksListEl = document.querySelector('.top-books-list');
 const dropdownMenuEl = document.querySelector('.dropdown-menu');
 const showMoreBtnEl = document.querySelector('.show-more-btn');
 const showCountEl = document.querySelector('.show-count');
 
-const allCategories = await getCategoryList();
-const categoryName = allCategories.map(category => category.list_name);
-
+// Global state variables
 export let allTopBooks = [];
 export let page = 1;
 export const perPage = 4;
 export let currentCategory = 'All categories';
+
+// Constants
+const INITIAL_CATEGORY = 'Top';
+
+// Cache for total books count
 let totalBooksCache = null;
 
 async function getTotalBooksCount() {
@@ -27,45 +32,69 @@ async function getTotalBooksCount() {
   return totalBooksCache;
 }
 
-// Render functions for displaying books and categories
-export async function displayBooks(
-  books,
-  isInitialLoad,
-  selectedCategory = 'All categories',
-  countBooksOverride = null
-) {
-  topBooksListEl.innerHTML = '';
-  resetPage();
+// Main function for displaying books
+export async function displayBooks(books, options = {}) {
+  // Destructure options with default values
+  const {
+    isInitialLoad = false,
+    selectedCategory = 'All categories',
+    resetContent = true,
+  } = options;
 
-  const filterBooks = filterDublicateBooks(books);
+  try {
+    // Clear content and reset pagination if needed
+    if (resetContent) {
+      clearBooksContent();
+      resetPage();
+    }
 
-  updateAllBooks(filterBooks);
+    // Input data validation
+    if (!Array.isArray(books)) {
+      iziToast.warning({
+        title: 'Warning',
+        message: 'displayBooks: books should be an array',
+        position: 'topRight',
+      });
+      return;
+    }
 
-  const booksForScreen = getBooksPerScreen();
-  const firstBook = filterBooks.slice(0, booksForScreen);
+    // Filter books from duplicates and zero prices
+    const filteredBooks = filterBooks(books);
 
-  if (firstBook.length > 0) {
-    createTopBooksList(firstBook);
-  }
+    // Update global state
+    updateAllBooks(filteredBooks);
+    currentCategory = selectedCategory;
 
-  currentCategory = selectedCategory;
+    // Calculate number of books for first screen
+    const booksPerScreen = getBooksPerScreen();
+    const initialBooks = filteredBooks.slice(0, booksPerScreen);
 
-  if (isInitialLoad) {
-    createCategoryBooksList(categoryName);
-  }
-  const totalBooksCount = await getTotalBooksCount();
+    // Display books
+    if (initialBooks.length > 0) {
+      createTopBooksList(initialBooks);
+    } else {
+      showEmptyState();
+    }
 
-  let countBooks = filterBooks.length;
+    // Initialize categories only on first load
+    if (isInitialLoad) {
+      await initializeCategories();
+    }
 
-  createShowCase(countBooks, totalBooksCount);
-
-  if (filterBooks.length > booksForScreen) {
-    showShowMoreBtn();
-  } else {
-    hideShowMoreBtn();
+    // Update counter and manage "Show more" button
+    await updateBooksCounter(filteredBooks.length);
+    toggleShowMoreButton(filteredBooks.length > booksPerScreen);
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: 'Error in displayBooks function',
+      position: 'topRight',
+    });
+    showErrorState();
   }
 }
 
+// Create HTML markup for books list
 export function createTopBooksList(books) {
   const markup = books
     .map(
@@ -96,19 +125,42 @@ export function createTopBooksList(books) {
   topBooksListEl.insertAdjacentHTML('beforeend', markup);
 }
 
+// Filter valid categories
+function filterValidCategories(categories) {
+  return categories.filter(
+    category =>
+      category &&
+      category.list_name &&
+      category.list_name.trim() !== '' &&
+      category.list_name.trim() !== ' ' &&
+      category.list_name.toLowerCase() !== 'undefined' &&
+      category.list_name.toLowerCase() !== 'null'
+  );
+}
+
+// Create categories list in dropdown
 async function createCategoryBooksList(arr) {
-  const markup = arr
+  // Filter valid category names
+  const validCategories = arr.filter(
+    categoryName =>
+      categoryName &&
+      categoryName.trim() !== '' &&
+      categoryName.trim() !== ' ' &&
+      categoryName.toLowerCase() !== 'undefined' &&
+      categoryName.toLowerCase() !== 'null'
+  );
+
+  const markup = validCategories
     .map(item => `<li class="dropdown-item"><p>${item}</p></li>`)
     .join('');
 
   dropdownMenuEl.insertAdjacentHTML('beforeend', markup);
 }
 
-// Исправленная функция createShowCase
+// Display books counter
 export async function createShowCase(count, total) {
   showCountEl.innerHTML = '';
   const markup = `<p>Showing ${count} of ${total}</p>`;
-
   showCountEl.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -130,25 +182,31 @@ export function resetPage() {
   page = 1;
 }
 
-// Filter and utility functions
-function filterDublicateBooks(books) {
-  const uniqueTitle = new Set();
+// Book filtering function
+function filterBooks(books) {
+  const uniqueTitles = new Set();
 
   return books.filter(book => {
-    // Отбрасываем книги без нормального title или без валидной цены (> 0)
-    if (!book.title || !book.price || book.price <= 0) return false;
+    // Remove books without title or with price 0.00
+    if (!book.title || !book.price || parseFloat(book.price) <= 0) {
+      return false;
+    }
 
-    // Делаем title нижним регистром и убираем лишние пробелы
-    const normalizeTitle = book.title.trim().toLowerCase();
+    // Normalize title (remove spaces and convert to lowercase)
+    const normalizedTitle = book.title.trim().toLowerCase();
 
-    // Если уже добавляли такую книгу — не добавляем снова
-    if (uniqueTitle.has(normalizeTitle)) return false;
+    // Check if this title already exists
+    if (uniqueTitles.has(normalizedTitle)) {
+      return false;
+    }
 
-    uniqueTitle.add(normalizeTitle);
+    // Add title to unique set
+    uniqueTitles.add(normalizedTitle);
     return true;
   });
 }
 
+// State management functions
 export function updateAllBooks(books) {
   allTopBooks.length = 0;
   allTopBooks.push(...books);
@@ -159,12 +217,124 @@ export const showShowMoreBtn = () =>
 
 export const hideShowMoreBtn = () => showMoreBtnEl.classList.add('is-hidden');
 
-getTopBooks().then(data => {
-  const initialBooks = data.flatMap(el => el.books);
-  displayBooks(initialBooks, true, 'Top', initialBooks.length);
-});
+// Helper functions for improved displayBooks
+function clearBooksContent() {
+  topBooksListEl.innerHTML = '';
+}
 
-// Dropdown menu
+function showEmptyState() {
+  topBooksListEl.innerHTML = '<li class="empty-state">No books found</li>';
+}
+
+function showErrorState() {
+  topBooksListEl.innerHTML = '<li class="error-state">Error loading books</li>';
+}
+
+async function initializeCategories() {
+  try {
+    const allCategories = await getCategoryList();
+    // Filter valid categories
+    const validCategories = filterValidCategories(allCategories);
+    const categoryNames = validCategories.map(category => category.list_name);
+    createCategoryBooksList(categoryNames);
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: 'Error initializing categories',
+      position: 'topRight',
+    });
+  }
+}
+
+async function updateBooksCounter(currentCount) {
+  try {
+    const totalCount = await getTotalBooksCount();
+    createShowCase(currentCount, totalCount);
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: 'Error updating books counter',
+      position: 'topRight',
+    });
+  }
+}
+
+function toggleShowMoreButton(shouldShow) {
+  if (shouldShow) {
+    showShowMoreBtn();
+  } else {
+    hideShowMoreBtn();
+  }
+}
+
+// App initialization functions
+function extractBooksFromCategories(categoriesData) {
+  if (!Array.isArray(categoriesData)) {
+    iziToast.warning({
+      title: 'Warning',
+      message: 'Incorrect categories data',
+      position: 'topRight',
+    });
+    return [];
+  }
+
+  return categoriesData.flatMap(category => {
+    if (category && Array.isArray(category.books)) {
+      return category.books;
+    }
+    return [];
+  });
+}
+
+function showLoadingState() {
+  const loadingEl = document.querySelector('.loading-indicator');
+  if (loadingEl) {
+    loadingEl.classList.remove('is-hidden');
+  }
+}
+
+function hideLoadingState() {
+  const loadingEl = document.querySelector('.loading-indicator');
+  if (loadingEl) {
+    loadingEl.classList.add('is-hidden');
+  }
+}
+
+function showInitializationError() {
+  topBooksListEl.innerHTML = `
+    <li class="error-state">
+      <p>Failed to load books. Please refresh the page.</p>
+      <button onclick="location.reload()" class="retry-btn">Refresh</button>
+    </li>
+  `;
+}
+
+// App initialization function
+async function initializeApp() {
+  try {
+    showLoadingState();
+
+    const topBooksData = await getTopBooks();
+    const initialBooks = extractBooksFromCategories(topBooksData);
+
+    await displayBooks(initialBooks, {
+      isInitialLoad: true,
+      selectedCategory: INITIAL_CATEGORY,
+      resetContent: true,
+    });
+
+    hideLoadingState();
+  } catch (error) {
+    iziToast.error({
+      title: 'Error',
+      message: 'App initialization error',
+      position: 'topRight',
+    });
+    showInitializationError();
+  }
+}
+
+// Dropdown menu creation function
 export function createDropdown(selector) {
   const dropdown = document.querySelector(selector);
   const btn = dropdown.querySelector('.dropdown-btn');
@@ -172,20 +342,20 @@ export function createDropdown(selector) {
   const text = dropdown.querySelector('.dropdown-text');
   const items = dropdown.querySelectorAll('.dropdown-item');
 
-  // Установка начального значения
+  // Set initial value
   const selected = dropdown.querySelector('.dropdown-item.selected');
   if (selected) text.textContent = selected.textContent;
 
-  // Открытие/закрытие
+  // Open/close
   btn.onclick = () => dropdown.classList.toggle('open');
 
-  // Выбор элемента
+  // Item selection
   items.forEach(item => {
     item.onclick = () => {
       items.forEach(i => i.classList.remove('selected'));
       item.classList.add('selected');
       text.textContent = item.textContent;
-      dropdown.classList.remove('open'); // Закрываем dropdown после выбора
+      dropdown.classList.remove('open');
 
       // Callback
       dropdown.dispatchEvent(
@@ -196,7 +366,7 @@ export function createDropdown(selector) {
     };
   });
 
-  // Закрытие при клике вне элемента
+  // Close when clicking outside element
   document.onclick = e => {
     if (!dropdown.contains(e.target)) {
       dropdown.classList.remove('open');
@@ -204,6 +374,11 @@ export function createDropdown(selector) {
   };
 }
 
+// App initialization
+document.addEventListener('DOMContentLoaded', initializeApp);
+
+// Dropdown initialization
 createDropdown('#categoryDropdown');
 
+// Empty event handler for dropdown (can be extended if needed)
 document.querySelector('#categoryDropdown').addEventListener('change', e => {});
