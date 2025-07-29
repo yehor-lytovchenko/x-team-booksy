@@ -23,6 +23,9 @@
   align-items: center;
   justify-content: center;
 }
+.header >* {
+  flex: 1;
+}
 .nav-header {
   width: 100%;
   display: flex;
