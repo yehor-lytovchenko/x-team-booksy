@@ -40,11 +40,13 @@ window.addEventListener('resize', hideElement);
 // Fixed HEADER
 
 window.addEventListener('scroll', e => {
-  console.log(e);
   const header = document.querySelector('.header');
+  const badgeEl = document.querySelector('.cart-badge');
   if (window.scrollY > 50) {
     header.classList.add('scrolled-header');
+    badgeEl.classList.add('scrolled-badge');
   } else {
     header.classList.remove('scrolled-header');
+    badgeEl.classList.remove('scrolled-badge');
   }
 });

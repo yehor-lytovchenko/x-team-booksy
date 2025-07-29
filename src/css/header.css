@@ -59,7 +59,7 @@
 .burger-header-button {
   padding: 12px;
   border: none;
-  background-color: var(--main-background);
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
