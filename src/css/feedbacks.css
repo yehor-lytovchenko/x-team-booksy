@@ -1,5 +1,11 @@
 /* SWIPER STYLES  */
 
+.feedbacks-content-wrapper-li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 .swiper-feedback {
   position: relative;
   width: 100%;
@@ -44,6 +50,7 @@
   background: var(--arrows-btn-hover);
   border: 1px solid rgba(11, 5, 0, 0.15);
   color: var(--primary-color);
+  fill: var(--primary-color);
 }
 
 .feedback-custom-swiper-button-prev:active,
@@ -54,7 +61,7 @@
 
 .feedback-custom-swiper-button-next.feedback-custom-swiper-button-disabled,
 .feedback-custom-swiper-button-prev.feedback-custom-swiper-button-disabled {
-  background: var(--arrows-btn-normal);
+
   opacity: 0.2;
   pointer-events: none;
   cursor: default;
@@ -94,8 +101,6 @@
 .swiper-buttons-container {
   display: flex;
   gap: 16px;
-  display: flex;
-  gap: 16px;
   height: 48px;
 }
 
@@ -131,8 +136,7 @@
   opacity: 1;
 }
 
-.swiper-pagination-horizontal.swiper-pagination-bullets
-  .swiper-pagination-bullet {
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
   margin: 0;
 }
 
@@ -157,7 +161,7 @@
 }
 
 #feedbacks-section {
-  margin:0 auto;
+  margin: 0 auto;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -195,12 +199,10 @@
 }
 
 .customer-container {
-  margin-top: auto;
   display: flex;
   align-items: center;
   gap: 16px;
   height: 48px;
-  margin-top: 24px;
 }
 
 .customer-img {
@@ -221,12 +223,18 @@
 }
 
 @media only screen and (min-width: 768px) {
-
+  .swiper-slide-feedback:nth-child(n+6) {
+    display: none;
+  }
+  .feedbacks-title {
+    width: auto;
+  }
   .main-feedback-container.container {
     padding-left: 32px;
     padding-right: 32px;
   }
   .main-feedback-swiper-wrapper {
+    width: 100%;
     max-width: 768px;
   }
 
@@ -257,6 +265,8 @@
   .swiper-slide-feedback {
     width: 340px;
     min-height: 244px;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -268,6 +278,9 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .swiper-slide-feedback:nth-child(n+13) {
+    display: none;
+  }
   .main-feedback-swiper-wrapper {
     max-width: 1440px;
   }
