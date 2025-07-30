@@ -58,7 +58,6 @@
   max-width: 336px;
   height: auto;
 }
-
 .location-list li {
   display: flex;
   align-items: flex-start;
@@ -84,6 +83,7 @@
   text-decoration: underline;
   color: inherit;
   line-height: 1.4;
+  transition: opacity var(--primary-transition);
 }
 .location-list a:hover {
   opacity: var(--hover-link-opacity, 0.2);
