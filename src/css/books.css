@@ -6,6 +6,7 @@ ul {
 
 .top-books-section {
   padding-bottom: 32px;
+  scroll-margin-top: 64px;
 }
 
 .top-book-item {
@@ -79,8 +80,8 @@ ul {
   font-weight: 500;
   color: var(--primary-color);
   transition:
-          background-color 0.5s ease,
-          color 0.5s ease;
+    background-color 0.5s ease,
+    color 0.5s ease;
 }
 
 .top-book-btn:hover,
@@ -108,9 +109,9 @@ ul {
   background: var(--btn-normal-bcg-color);
   color: var(--white-color);
   transition:
-          background-color 0.5s ease,
-          color 0.5s ease,
-          border 0.5s ease;
+    background-color 0.5s ease,
+    color 0.5s ease,
+    border 0.5s ease;
 }
 
 .show-more-btn:hover,
@@ -141,17 +142,12 @@ ul {
 }
 
 @media screen and (min-width: 1440px) {
-  .top-books-section {
-    scroll-margin-top: 64px;
-  }
-
   .top-book-item {
     width: 227px;
     max-height: 439px;
   }
 
   .top-book-img {
-
     height: 322px;
   }
 
@@ -169,8 +165,6 @@ ul {
     justify-content: space-between;
   }
 }
-
-
 
 .books-nav-wrapper {
   display: flex;
@@ -234,7 +228,7 @@ ul {
   padding: 8px 12px;
   border: 1px solid rgba(11, 5, 0, 0.15);
   border-radius: 8px;
-  background: rgba(11, 5, 0, 0.05);;
+  background: rgba(11, 5, 0, 0.05);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -292,7 +286,6 @@ ul {
     box-shadow: 0 4px 16px rgba(11, 5, 0, 0.1);
   }
 }
-
 
 .dropdown.open .dropdown-menu {
   opacity: 1;

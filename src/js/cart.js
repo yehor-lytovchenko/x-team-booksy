@@ -72,7 +72,7 @@ function onInputChange(e) {
 
   cartItem.quantity = newQty;
 
-  quantityEl.textContent = `amount: ${newQty}`;
+  quantityEl.textContent = `q-ty: ${newQty}`;
   totalPriceEl.textContent = `total: ${(parseFloat(cartItem.book.price) * newQty).toFixed(2)}`;
   input.value = newQty;
   setLocalStorage(STORE_CART_KEY, books);
@@ -131,7 +131,7 @@ function onClickEvent(e) {
 
   function updateItem() {
     const newQty = cartItem.quantity;
-    quantityEl.textContent = `amount: ${newQty}`;
+    quantityEl.textContent = `q-ty: ${newQty}`;
     totalPriceEl.textContent = `total: ${(price * newQty).toFixed(2)}$`;
     inputEl.value = newQty;
 

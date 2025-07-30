@@ -114,7 +114,7 @@ export function createTopBooksList(books) {
           <div class="top-book-info">
           <div class="top-book-info-wrap">
             <h3 class="top-book-title">${book.title.toLowerCase()}</h3>
-            <p class="top-book-price">$${book.price}</p>
+            <p class="top-book-price">$${parseFloat(book.price).toFixed(2)}</p>
             </div>
             <p class="top-book-author">${book.author.toLowerCase()}</p>
           </div>
