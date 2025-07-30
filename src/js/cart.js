@@ -36,13 +36,13 @@ cartElMobile.addEventListener('click', onCartElClick);
 function openModal() {
   backdrop.classList.add('is-open');
   const body = document.querySelector('body');
-  body.style['overflow-y'] = 'hidden';
+  body.classList.add('no-scroll');
 }
 
 function closeModal() {
   backdrop.classList.remove('is-open');
   const body = document.querySelector('body');
-  body.style['overflow-y'] = 'auto';
+  body.classList.remove('no-scroll');
   const nextSibling = cartList.nextElementSibling;
   setTimeout(() => {
     nextSibling.remove();
