@@ -2,6 +2,7 @@ import {
   getCategoryList,
   getTopBooks,
   getTotalBooks,
+  getBooksByCategory,
   getCountBooksByCategory,
 } from './api.js';
 import { getPaginationValue, setPaginationValue } from './books.js';
@@ -236,10 +237,37 @@ function showErrorState() {
 async function initializeCategories() {
   try {
     const allCategories = await getCategoryList();
-    // Filter valid categories
     const validCategories = filterValidCategories(allCategories);
-    const categoryNames = validCategories.map(category => category.list_name);
-    createCategoryBooksList(categoryNames);
+
+    const categoryPromises = validCategories.map(async category => {
+      try {
+        const books = await getBooksByCategory(category.list_name);
+        const filteredBooks = filterBooks(books);
+
+        return {
+          name: category.list_name,
+          count: filteredBooks.length,
+        };
+      } catch (error) {
+        iziToast.error({
+          title: 'Error',
+          message: 'Error initializing categories',
+          position: 'topRight',
+        });
+        return {
+          name: category.list_name,
+          count: 0,
+        };
+      }
+    });
+
+    const results = await Promise.all(categoryPromises);
+
+    const categoriesWithBooks = results
+      .filter(result => result.count > 0)
+      .map(result => result.name);
+
+    createCategoryBooksList(categoriesWithBooks);
   } catch (error) {
     iziToast.error({
       title: 'Error',
