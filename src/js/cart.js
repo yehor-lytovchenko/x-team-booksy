@@ -1,5 +1,4 @@
 import iziToast from 'izitoast';
-import { doc } from 'prettier';
 
 const [cartElDesktop, cartElMobile] =
   document.querySelectorAll('.cart-open-link');
@@ -147,6 +146,7 @@ function onClickEvent(e) {
     iziToast.success({
       title: 'Hello',
       message: 'Thank you for your purchase!',
+      position: 'topRight',
     });
   }
   function handleContinue() {
@@ -287,7 +287,7 @@ function renderCartHTML(books) {
                   <p>${b.title}</p>
                     <img class="cart-item-img" src="${b.book_image}" alt="${b.title}" />
                   </div>
-                  
+
                   </div>
                   <div class="enter-value">
                   <div>

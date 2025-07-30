@@ -46,12 +46,14 @@ const modalOpen = async e => {
         iziToast.error({
           title: 'Error',
           message: `Failed to fetch book data: ${err}`,
+          position: 'topRight',
         });
       }
     } else {
       iziToast.error({
         title: 'Error',
         message: `Book ID not found`,
+        position: 'topRight',
       });
       modalBooksEl.classList.remove('books-window-is-open');
       body.classList.remove('no-scroll');
@@ -144,6 +146,7 @@ const cartHandler = e => {
         iziToast.error({
           title: 'Error',
           message: `Failed to add book to the cart!`,
+          position: 'topRight',
         });
       }
     })
@@ -152,6 +155,7 @@ const cartHandler = e => {
   iziToast.info({
     title: 'Hello',
     message: `Successfully added ${inputEl.value} item(s) to the cart!`,
+    position: 'topRight',
   });
 };
 cartEl.addEventListener('click', cartHandler);
@@ -163,6 +167,7 @@ const onSubmit = e => {
   iziToast.success({
     title: 'Hello',
     message: 'Thank you for your purchase!',
+    position: 'topRight',
   });
 };
 formEl.addEventListener('submit', onSubmit);
