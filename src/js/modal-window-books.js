@@ -24,21 +24,21 @@ const inputEl = quantityEl.children[1];
 const increaseEl = quantityEl.children[2];
 
 
-// ? Змінна відповідає за кількість товарів в корзині і айді книжки 
+// ? Змінна відповідає за кількість товарів в корзині і айді книжки
 export let totalQuantity = 0;
 export let bookCartId;
 
 // ? Відкриття модального вікна
 const modalOpen = async (e) => {
   if (e.target.classList.contains('top-book-btn')) {
-     modalBooksEl.classList.add('books-window-is-open'); 
+     modalBooksEl.classList.add('books-window-is-open');
   body.classList.add("no-scroll");
   inputEl.value = 1;
   // ? Дістаєм найближчий елемент списку, читаєм його айді.
-  let bookListEl = e.target.closest('li'); 
+  let bookListEl = e.target.closest('li');
   bookId = bookListEl.id;
 
-  // ? Якщо айді присутній, відправляється запит по айдішнику і виконується розмітка. Якщо ні, виводиться помилка і модальне вікно закривається. 
+  // ? Якщо айді присутній, відправляється запит по айдішнику і виконується розмітка. Якщо ні, виводиться помилка і модальне вікно закривається.
   if(bookId){
       try {
         const bookData = await getBooksById(bookId);
@@ -53,7 +53,7 @@ const modalOpen = async (e) => {
         title: 'Error',
         message: `Book ID not found`
       });
-        modalBooksEl.classList.remove('books-window-is-open'); 
+        modalBooksEl.classList.remove('books-window-is-open');
   body.classList.remove("no-scroll");
   }
   }
@@ -92,7 +92,7 @@ const markupHandler = ({ title, description, author, book_image, book_image_widt
                 <svg class="icon-chevron" width="24" height="25">
                   <use
                     class="chevron-use"
-                    href="./public/img/icons.svg#icon-chevron-down"
+                    href="./img/icons.svg#icon-chevron-down"
                   ></use>
                 </svg>
               </span></button>
