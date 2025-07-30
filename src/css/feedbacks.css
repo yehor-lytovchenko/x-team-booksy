@@ -13,7 +13,7 @@
 .swiper-slide-feedback {
   display: flex;
   flex-direction: column;
-justify-content: space-between;
+  justify-content: space-between;
   gap: 24px;
   padding: 32px;
   border: var(--inputs-border);
@@ -28,13 +28,13 @@ justify-content: space-between;
   border: 1px solid var(--arrows-btn-normal);
   background: var(--arrows-btn-normal);
   color: var(--white-color);
-  width: 48px !important;
-  height: 48px !important;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative !important;
+  position: relative;
 }
 
 .feedback-custom-swiper-button-prev:hover,
@@ -58,7 +58,6 @@ justify-content: space-between;
   opacity: 0.2;
   pointer-events: none;
   cursor: default;
-  filter: grayscale(70%);
 }
 
 .feedback-custom-swiper-button-next svg,
@@ -84,7 +83,7 @@ justify-content: space-between;
 
 .feedback-custom-swiper-button-disabled svg {
   fill: var(--primary-color);
-  opacity: 0.2;
+  opacity: 1;
 }
 
 .feedback-custom-swiper-button-prev::after,
@@ -107,28 +106,28 @@ justify-content: space-between;
   margin-top: 32px;
   width: 100%;
   height: 48px;
-  padding-right: 0 !important;
+  padding-right: 0;
 }
 
 .custom-swiper-pagination {
   display: flex;
   gap: 8px;
-  position: relative !important;
+  position: relative;
   gap: 8px;
-  margin-right: 0 !important;
+  margin-right: 0;
 }
 
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background: var(--primary-color) !important;
+  background: var(--primary-color);
   border-radius: 50%;
   opacity: 0.5;
   transition: 0.3s;
 }
 
 .swiper-pagination-bullet-active {
-  background: var(--primary-color) !important;
+  background: var(--primary-color);
   opacity: 1;
 }
 
@@ -156,6 +155,7 @@ justify-content: space-between;
 .main-feedback-container.container {
   padding: 0;
 }
+
 #feedbacks-section {
   margin:0 auto;
   display: flex;
@@ -163,16 +163,12 @@ justify-content: space-between;
   justify-content: flex-start;
   flex-direction: column;
   padding: 64px 16px;
-  background: var(--main-background);
   overflow-x: hidden;
-  color: var(--primary-color);
-  font: var(--main-font);
 }
 
 .feedbacks-container {
   display: flex;
   flex-direction: column;
-
   margin-bottom: 80px;
 }
 
@@ -301,7 +297,7 @@ justify-content: space-between;
   .swiper-slide-feedback {
     width: 421px;
     min-height: 217px;
-    display: flex !important;
+    display: flex;
     flex-direction: column;
   }
 }
