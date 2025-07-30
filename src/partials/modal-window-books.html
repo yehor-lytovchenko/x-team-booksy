@@ -1,0 +1,93 @@
+<div class="modal-window-books-backdrop" id="modal-books">
+  <div class="modal-window-books">
+    <button class="mob-books-close" type="button" id="mob-close-button">
+      <svg class="icon-close-modal" width="32" height="32">
+        <use href="./img/icons.svg#icon-x"></use>
+      </svg>
+    </button>
+
+    <div class="mob-books-content-wrapper">
+      <div class="mod-books-text-wrapper" id="text-wrap-modal-books">
+        <!-- контейнер динамічного тексту  -->
+        <div class="mod-books-dynamic-text" id="dynamic-text"></div>
+
+        <form class="book-model-form" id="book-modal-form">
+          <div class="quantity-wrapper" id="quantity-wrapper">
+            <button class="quantity-button" type="button" id="reduce-button">
+              -
+            </button>
+            <input
+              class="quantity-input"
+              type="number"
+              id="quantity"
+              value="1"
+              min="1"
+              step="1"
+              readonly
+            />
+            <button class="quantity-button" type="button" id="increase-button">
+              +
+            </button>
+          </div>
+
+          <div class="form-buttons-wrapper">
+            <button class="cart-button" id="cart-button" type="button">
+              Add To Cart
+            </button>
+            <button class="buy-button" id="buy-button" type="submit">
+              Buy Now
+            </button>
+          </div>
+        </form>
+        <div class="accordion-container" id="accordion">
+          <div class="ac">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">
+                Shipping
+                <span class="chevron-span">
+                  <svg class="icon-chevron" width="24" height="25">
+                    <use
+                      class="chevron-use"
+                      href="./public/img/icons.svg#icon-chevron-down"
+                    ></use>
+                  </svg>
+                </span>
+              </button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">
+                We ship across the United States within 2–5 business days. All
+                orders are processed through USPS or a reliable courier service.
+                Enjoy free standard shipping on orders over $50.
+              </p>
+            </div>
+          </div>
+
+          <div class="ac">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">
+                Returns
+                <span class="chevron-span">
+                  <svg class="icon-chevron" width="24" height="25">
+                    <use
+                      class="chevron-use"
+                      href="./public/img/icons.svg#icon-chevron-down"
+                    ></use>
+                  </svg>
+                </span>
+              </button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">
+                You can return an item within 14 days of receiving your order,
+                provided it hasn’t been used and is in its original condition.
+                To start a return, please contact our support team — we’ll guide
+                you through the process quickly and hassle-free.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
