@@ -42,6 +42,18 @@ async function handleShowMore() {
 
   await updateBooksCounter();
 
+  // Smooth scroll
+  const firstItemEl = document.querySelector('.top-book-item');
+
+  if (firstItemEl) {
+    const cardHeight = firstItemEl.getBoundingClientRect().height;
+
+    window.scrollBy({
+      top: cardHeight,
+      behavior: 'smooth',
+    });
+  }
+
   // If reached end of list
   if (end >= allTopBooks.length) {
     hideShowMoreBtn();
