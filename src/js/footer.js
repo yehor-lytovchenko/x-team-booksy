@@ -8,7 +8,20 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    input.value = input.value.trim();
+    const trimmedValue = input.value.trim();
+    if (trimmedValue === '') {
+      input.classList.add('error');
+
+      iziToast.error({
+        title: 'Error',
+        message: 'Email field cannot be empty',
+        position: 'topRight',
+        timeout: 4000,
+      });
+      return;
+    }
+
+    input.value = trimmedValue;
 
     if (!input.checkValidity()) {
       input.classList.add('error');
@@ -35,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const existingEmails =
       JSON.parse(localStorage.getItem('subscribedEmails')) || [];
-    if (existingEmails.some(item => item.email === input.value)) {
+    if (existingEmails.some(item => item.email === trimmedValue)) {
       input.classList.add('error');
 
       iziToast.warning({
@@ -47,8 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    saveEmailToStorage(input.value);
-
+    saveEmailToStorage(trimmedValue);
     input.value = '';
 
     iziToast.success({
