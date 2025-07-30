@@ -28,11 +28,11 @@ const swiper = new Swiper('.swiper-feedback', {
   breakpoints: {
     768: {
       slidesPerView: 2,
-      slidesPerGroup: 2,
+      slidesPerGroup: 1,
     },
     1440: {
       slidesPerView: 3,
-      slidesPerGroup: 3,
+      slidesPerGroup: 1,
     },
   },
 
