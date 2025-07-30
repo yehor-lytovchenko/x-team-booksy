@@ -4,6 +4,10 @@ ul {
 
 } */
 
+.top-books-section {
+  padding-bottom: 32px;
+}
+
 .top-book-item {
   display: flex;
   flex-direction: column;
