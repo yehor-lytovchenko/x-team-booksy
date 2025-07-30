@@ -101,7 +101,7 @@ const generateMarkup = arr => {
             <p class="hero-text">
               ${slide.text}<span class="hero-text-wrap">${slide.highlight}</span>
             </p>
-            <a class="hero-link" href="${slide.link}">Shop Now!</a>
+            <a class="hero-link" href="#books-section">Shop Now!</a>
           </div>
         </li>`;
     })

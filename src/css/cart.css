@@ -91,10 +91,15 @@
   padding: 12px;
   width: 12px;
   height: 36px;
-  background-color: var(--arrows-btn-normal);
+  background-color: transparent;
   fill: #000;
   transition: background-color var(--primary-transition);
   border-radius: 4px;
+}
+
+.enter-value-btn:hover,
+.enter-value-btn:focus {
+  background-color: var(--wbtn-hover-bcg-color);
 }
 
 .remove-book {
@@ -102,14 +107,31 @@
   justify-content: center;
   align-items: center;
   border: 1px solid rgba(11, 5, 0, 0.15);
-  /* padding: 12px;
-  width: 80px;
-  height: 36px; */
+
   padding: 6px;
   background-color: var(--arrows-btn-normal);
-  fill: #000;
+  color: var(--white-color);
   transition: background-color var(--primary-transition);
   border-radius: 4px;
+}
+
+.remove-book:hover,
+.remove-book:focus {
+  background-color: var(--btn-hover-bcg-color);
+}
+
+.js-remove-book,
+.continue {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid rgba(11, 5, 0, 0.15);
+}
+
+.js-remove-book:hover,
+.js-remove-book:focus,
+.continue:hover,
+.continue:focus {
+  background-color: var(--wbtn-hover-bcg-color);
 }
 
 .purchase-item-content {

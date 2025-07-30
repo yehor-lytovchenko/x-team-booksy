@@ -115,12 +115,14 @@ function onClickEvent(e) {
   if (btn.classList.contains('decrease')) {
     if (cartItem.quantity > 1) {
       cartItem.quantity -= 1;
+      e.target.blur();
       updateItem();
     }
   }
 
   if (btn.classList.contains('increase')) {
     cartItem.quantity += 1;
+    e.target.blur();
     updateItem();
   }
 
@@ -143,8 +145,8 @@ function onClickEvent(e) {
     closeModal();
 
     iziToast.success({
-      message: 'Thank you for purchase',
-      position: 'topRight',
+      title: 'Hello',
+      message: 'Thank you for your purchase!',
     });
   }
   function handleContinue() {
@@ -180,18 +182,18 @@ function findBookById(id) {
   return book;
 }
 
-function addToCart(book) {
+function addToCart(book, quantity = 1) {
   const bookId = book._id;
   const bookIndex = books.findIndex(cartItem => cartItem.book._id === bookId);
 
   if (bookIndex === -1) {
     const bookData = {
-      quantity: 1,
+      quantity,
       book,
     };
     books.push(bookData);
   } else {
-    books[bookIndex].quantity += 1;
+    books[bookIndex].quantity += quantity;
   }
   const totalQuantity = books.reduce((acc, el) => (acc += el.quantity), 0);
   setBadge(totalQuantity);
@@ -290,7 +292,7 @@ function renderCartHTML(books) {
                   <div class="enter-value">
                   <div>
                     <p>price: ${parseFloat(b.price).toFixed(2)}$</p>
-                    <p class="quantity">amount: ${quantity}</p>
+                    <p class="quantity">q-ty: ${quantity}</p>
                     <p class="total-price">total: ${(parseFloat(b.price) * quantity).toFixed(2)}$</p>
                   </div>
                     <div class="qty-group">

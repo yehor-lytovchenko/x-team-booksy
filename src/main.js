@@ -11,3 +11,4 @@ import './js/footer.js';
 import './js/api.js';
 import './js/render-functions.js';
 import './js/modal-window-books.js';
+import './js/cart.js';
