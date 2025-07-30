@@ -3,6 +3,9 @@
   padding-top: 80px;
   padding-bottom: 80px;
 }
+.center-logo {
+  margin: auto;
+}
 
 .footer-container {
   text-align: center;
@@ -93,6 +96,7 @@
 }
 
 @media screen and (min-width: 768px) {
+
   .nav-links-list {
     flex-direction: row;
     justify-content: center;
@@ -105,7 +109,10 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1440px) {
+  .center-logo {
+    margin: 0;
+  }
   .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -113,7 +120,6 @@
   }
 
   .nav-wrapper {
-    text-align: left;
     flex: 1;
   }
 
