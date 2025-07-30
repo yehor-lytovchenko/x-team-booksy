@@ -20,6 +20,7 @@
   overflow: hidden;
 }
 .mobile-nav-menu-wrapper {
+  position: relative;
   padding-top: 14px;
 }
 .logo-mob-nav {
