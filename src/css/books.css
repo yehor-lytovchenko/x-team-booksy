@@ -45,6 +45,8 @@ ul {
 
 .top-book-title {
   font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
   text-transform: capitalize;
   color: var(--primary-color);
   max-width: 287px;
@@ -56,17 +58,20 @@ ul {
 .top-book-price {
   font-weight: 600;
   font-size: 20px;
+  line-height: 1.5;
   color: var(--primary-color);
   margin-left: auto;
 }
 
 .top-book-author {
+  font-weight: 400;
   font-size: 14px;
   color: var(--primary-color);
 }
 
 .top-book-btn {
   border: var(--wbtn-border);
+  background-color: var(--main-font);
   border-radius: 4px;
   padding: 8px 20px;
   height: 40px;
