@@ -67,6 +67,7 @@ ul {
   font-weight: 400;
   font-size: 14px;
   color: var(--primary-color);
+  text-transform: capitalize;
 }
 
 .top-book-btn {
@@ -79,8 +80,8 @@ ul {
   font-weight: 500;
   color: var(--primary-color);
   transition:
-    background-color 0.5s ease,
-    color 0.5s ease;
+          background-color 0.5s ease,
+          color 0.5s ease;
 }
 
 .top-book-btn:hover,
@@ -108,9 +109,9 @@ ul {
   background: var(--btn-normal-bcg-color);
   color: var(--white-color);
   transition:
-    background-color 0.5s ease,
-    color 0.5s ease,
-    border 0.5s ease;
+          background-color 0.5s ease,
+          color 0.5s ease,
+          border 0.5s ease;
 }
 
 .show-more-btn:hover,
@@ -286,7 +287,7 @@ ul {
   transform: rotate(180deg);
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1439px) {
   .dropdown-menu {
     position: absolute;
     top: calc(100% + 4px);
