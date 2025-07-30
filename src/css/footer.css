@@ -61,6 +61,7 @@
   border: var(--inputs-border);
   background-color: var(--input-background-color);
   outline: none;
+  transition: border var(--primary-transition);
 }
 
 .footer-form-input:hover,
@@ -89,6 +90,9 @@
   padding: 12px 24px;
   height: 48px;
   background-color: transparent;
+  transition:
+    background-color var(--primary-transition),
+    color var(--primary-transition);
 }
 
 .footer-form-btn:hover {
