@@ -113,10 +113,10 @@ export function createTopBooksList(books) {
             />
           <div class="top-book-info">
           <div class="top-book-info-wrap">
-            <h3 class="top-book-title">${book.title}</h3>
+            <h3 class="top-book-title">${book.title.toLowerCase()}</h3>
             <p class="top-book-price">$${book.price}</p>
             </div>
-            <p class="top-book-author">${book.author}</p>
+            <p class="top-book-author">${book.author.toLowerCase()}</p>
           </div>
           <button class="top-book-btn" type="button">
             Learn More
