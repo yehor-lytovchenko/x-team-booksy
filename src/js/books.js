@@ -7,6 +7,7 @@ import {
   getPage,
   incrementPage,
   allTopBooks,
+  updateBooksCounter,
 } from './render-functions.js';
 import iziToast from 'izitoast';
 
@@ -14,6 +15,15 @@ const dropdownMenuEl = document.querySelector('.dropdown-menu');
 const showMoreBtnEl = document.querySelector('.show-more-btn');
 
 const perPage = 4;
+let paginationValue = getBooksPerScreen();
+
+export function getPaginationValue() {
+  return paginationValue;
+}
+
+export function setPaginationValue(value) {
+  paginationValue = value;
+}
 
 // Button show more
 async function handleShowMore() {
@@ -26,8 +36,11 @@ async function handleShowMore() {
   const start = booksForScreen + (page - 2) * perPage;
   const end = start + perPage;
   const nextBooks = allTopBooks.slice(start, end);
+  paginationValue = Math.min(end, allTopBooks.length);
 
   createTopBooksList(nextBooks);
+
+  await updateBooksCounter();
 
   // If reached end of list
   if (end >= allTopBooks.length) {
