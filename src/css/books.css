@@ -141,6 +141,10 @@ ul {
 }
 
 @media screen and (min-width: 1440px) {
+  .top-books-section {
+    scroll-margin-top: 64px;
+  }
+
   .top-book-item {
     width: calc((100% - 24px * 3) / 4);
     max-height: 439px;
@@ -163,12 +167,7 @@ ul {
     min-width: 308px;
     justify-content: space-between;
   }
-
 }
-
-
-
-
 
 .visually-hidden {
   position: absolute;
@@ -197,7 +196,6 @@ ul {
     flex-wrap: nowrap;
   }
 }
-
 
 .desk-books-nav-wrapper {
   align-items: start;
@@ -376,7 +374,6 @@ ul {
   .dropdown {
     display: block;
     max-width: 100%;
-
   }
 }
 
@@ -385,7 +382,6 @@ ul {
     display: block;
     max-width: 280px;
     margin-left: 24px;
-
   }
 }
 
