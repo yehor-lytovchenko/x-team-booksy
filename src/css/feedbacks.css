@@ -278,7 +278,7 @@
 }
 
 @media only screen and (min-width: 1440px) {
-  .swiper-slide-feedback:nth-child(n+13) {
+  .swiper-slide-feedback:nth-child(n+6) {
     display: none;
   }
   .main-feedback-swiper-wrapper {
