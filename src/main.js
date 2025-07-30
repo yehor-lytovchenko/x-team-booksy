@@ -10,3 +10,4 @@ import './js/scroll-up.js';
 import './js/footer.js';
 import './js/api.js';
 import './js/render-functions.js';
+import './js/modal-window-books.js';
