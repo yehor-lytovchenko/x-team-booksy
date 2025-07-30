@@ -72,50 +72,65 @@ const markupCleaner = () => {
   if (dynamicText) dynamicText.innerHTML = '';
 };
 
+const capitalizeTitle = str => {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+
 const markupHandler = ({
-  title,
-  description,
-  author,
-  book_image,
-  book_image_width,
-  book_image_height,
-  price,
-}) => {
+                         title,
+                         description,
+                         author,
+                         book_image,
+                         book_image_width,
+                         book_image_height,
+                         price,
+                       }) => {
   markupCleaner();
   if (description === '') {
     description = 'There is no description for this book.';
   }
+
+  const formattedTitle = capitalizeTitle(title);
+
   textWrapperEl.insertAdjacentHTML(
     'beforebegin',
-    `<img  class="books-modal-image" loading="lazy" src="${book_image}" width="${book_image_width}" height="${book_image_height}" alt="${title}">`
+    `<img class="books-modal-image" loading="lazy" src="${book_image}" width="${book_image_width}" height="${book_image_height}" alt="${formattedTitle}">`
   );
+
   dynamicText.insertAdjacentHTML(
     'afterbegin',
-    `<h2 class="book-title-modal">${title}</h2>
-        <h3 class="book-author-modal">${author}</h3>
-        <h3 class="book-price">$${price}</h3>`
+    `<h2 class="book-title-modal">${formattedTitle}</h2>
+     <h3 class="book-author-modal">${author}</h3>
+     <h3 class="book-price">$${price}</h3>`
   );
+
   accordionEl.insertAdjacentHTML(
     'afterbegin',
     `<div class="ac ac-dynamic">
-          <h2 class="ac-header">
-            <button type="button" class="ac-trigger">Details
-              <span class="chevron-span">
-                <svg class="icon-chevron" width="24" height="25">
-                  <use
-                    class="chevron-use"
-                    href="./img/icons.svg#icon-chevron-down"
-                  ></use>
-                </svg>
-              </span></button>
-          </h2>
-          <div class="ac-panel">
-            <p class="ac-text">
-              ${description}
-            </p>
-          </div>
-        </div>`
+        <h2 class="ac-header">
+          <button type="button" class="ac-trigger">Details
+            <span class="chevron-span">
+              <svg class="icon-chevron" width="24" height="25">
+                <use
+                  class="chevron-use"
+                  href="./img/icons.svg#icon-chevron-down"
+                ></use>
+              </svg>
+            </span></button>
+        </h2>
+        <div class="ac-panel">
+          <p class="ac-text">
+            ${description}
+          </p>
+        </div>
+      </div>`
   );
+
   accordionInstance.update();
 };
 
