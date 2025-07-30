@@ -3,6 +3,7 @@ import { Navigation, Pagination, Keyboard } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import '../css/feedbacks.css';
 
 const swiper = new Swiper('.swiper-feedback', {
   modules: [Navigation, Pagination, Keyboard],
