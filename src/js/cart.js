@@ -7,10 +7,8 @@ const [badgeElDesktop, badgeElMobile] =
 const backdrop = document.querySelector('.js-backdrop-cart');
 const closeBtn = document.querySelector('.js-close-btn-cart');
 const cartList = document.querySelector('#cart-list');
-// що має відображати корзина:
-// - фото
-// - назва книги
-// - автор
+const body = document.querySelector('body');
+const menuEl = document.querySelector('#mobile_menu');
 
 const STORE_CART_KEY = 'stored-cart-booksy';
 let books = [];
@@ -25,6 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const onCartElClick = e => {
   e.preventDefault();
+  e.stopPropagation();
   openModal();
   renderCartHTML(books);
 };
@@ -34,7 +33,12 @@ cartElMobile.addEventListener('click', onCartElClick);
 
 function openModal() {
   backdrop.classList.add('is-open');
-  const body = document.querySelector('body');
+
+  if (window.innerWidth < 768) {
+    menuEl.classList.remove('mob-menu-open');
+    body.classList.remove('no-scroll');
+  }
+
   body.classList.add('no-scroll');
 }
 
