@@ -8,6 +8,7 @@ import {
   incrementPage,
   allTopBooks,
   updateBooksCounter,
+  showBooksLoader,
 } from './render-functions.js';
 import iziToast from 'izitoast';
 
@@ -118,6 +119,9 @@ async function handleCategoryClick(event) {
 }
 
 // Event listeners
+
+document.addEventListener('DOMContentLoaded', showBooksLoader);
+
 if (showMoreBtnEl) {
   showMoreBtnEl.addEventListener('click', handleShowMore);
 }

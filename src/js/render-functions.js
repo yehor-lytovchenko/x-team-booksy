@@ -13,6 +13,9 @@ export const topBooksListEl = document.querySelector('.top-books-list');
 const dropdownMenuEl = document.querySelector('.dropdown-menu');
 const showMoreBtnEl = document.querySelector('.show-more-btn');
 const showCountEl = document.querySelector('.show-count');
+const booksWrapperEl = document.querySelector('.desk-books-nav-wrapper');
+const booksLoaderEl = document.querySelector('.book-loader');
+const showMoreLoaderEL = document.querySelector('.loader');
 
 // Global state variables
 export let allTopBooks = [];
@@ -114,7 +117,7 @@ export function createTopBooksList(books) {
           <div class="top-book-info">
           <div class="top-book-info-wrap">
             <h3 class="top-book-title">${book.title.toLowerCase()}</h3>
-            <p class="top-book-price">$${parseFloat(book.price).toFixed(2)}</p>
+            <p class="top-book-price">$${book.price}</p>
             </div>
             <p class="top-book-author">${book.author.toLowerCase()}</p>
           </div>
@@ -275,6 +278,7 @@ async function initializeCategories() {
       position: 'topRight',
     });
   }
+  hideBooksLoader();
 }
 
 async function updateBooksCounter() {
@@ -300,6 +304,27 @@ function toggleShowMoreButton(shouldShow) {
   } else {
     hideShowMoreBtn();
   }
+}
+// Books loader when page is start
+export function showBooksLoader() {
+  booksLoaderEl.classList.remove('visually-hidden');
+  booksWrapperEl.classList.add('visually-hidden');
+}
+
+function hideBooksLoader() {
+  booksLoaderEl.classList.add('visually-hidden');
+  booksWrapperEl.classList.remove('visually-hidden');
+}
+
+// Show more btn loader
+function showLoadMoreBtn() {
+  showMoreLoaderEL.classList.remove('visually-hidden');
+  showMoreBtnEl.classList.add('visually-hidden');
+}
+
+function hideLoadMoreBtn() {
+  showMoreLoaderEL.classList.add('visually-hidden');
+  showMoreBtnEl.classList.remove('visually-hidden');
 }
 
 // App initialization functions
