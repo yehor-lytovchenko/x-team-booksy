@@ -14,6 +14,13 @@ const nameInput = form.elements.name;
 const emailInput = form.elements.email;
 const messageInput = form.elements.message;
 
+// ========Validation========//
+
+function isValidEmail(email) {
+  const emailRegex = /^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  return emailRegex.test(email);
+}
+
 // ==============================
 // Save to localStorage
 // ==============================
@@ -130,10 +137,10 @@ form.addEventListener('submit', e => {
   }
 
   // Email validation includes @
-  if (email && !email.includes('@')) {
+  if (email && !isValidEmail(email)) {
     iziToast.error({
       title: 'Invalid Email',
-      message: 'Email must contain "@" symbol',
+      message: 'Please enter a valid email format (example@domain.com)',
       position: 'topRight',
     });
     emailInput.classList.add('error');
