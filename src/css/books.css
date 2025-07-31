@@ -390,7 +390,7 @@
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 700px;
-  margin-top: 64px;
+
 }
 
 .book {
@@ -490,21 +490,19 @@
   left: 8px;
   right: 8px;
   bottom: 8px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    #e8e5e0 20%,
-    #e8e5e0 25%,
-    transparent 25%,
-    transparent 45%,
-    #e8e5e0 45%,
-    #e8e5e0 50%,
-    transparent 50%,
-    transparent 70%,
-    #e8e5e0 70%,
-    #e8e5e0 75%,
-    transparent 75%
-  );
+  background: linear-gradient(90deg,
+  transparent 0%,
+  #e8e5e0 20%,
+  #e8e5e0 25%,
+  transparent 25%,
+  transparent 45%,
+  #e8e5e0 45%,
+  #e8e5e0 50%,
+  transparent 50%,
+  transparent 70%,
+  #e8e5e0 70%,
+  #e8e5e0 75%,
+  transparent 75%);
   background-size: 100% 4px;
   background-repeat: repeat-y;
   opacity: 0.6;
@@ -561,6 +559,7 @@
 }
 
 @keyframes pageFlip {
+
   0%,
   20% {
     transform: rotateY(0deg);
@@ -580,6 +579,7 @@
 }
 
 @keyframes dotsAnimation {
+
   0%,
   20% {
     content: '';
@@ -621,6 +621,20 @@
 
 .is-hidden {
   display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* Show more btn loader */
