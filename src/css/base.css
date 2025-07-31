@@ -46,6 +46,27 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Scrollbar styles for html */
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--btn-normal-bcg-color);
+  border-radius: 4px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(11, 5, 0, 0.05);
+  border-radius: 4px;
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--btn-normal-bcg-color) rgba(11, 5, 0, 0.05);
+}
+
 body {
   font-family: var(--main-font);
   color: var(--primary-color);
