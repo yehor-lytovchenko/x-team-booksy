@@ -24,7 +24,6 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const onCartElClick = e => {
-  console.log('e', e);
   e.preventDefault();
   openModal();
   renderCartHTML(books);
@@ -83,7 +82,6 @@ function onInputChange(e) {
 
 function onClickEvent(e) {
   const btn = e.target;
-  console.log('btn', btn);
   if (btn.classList.contains('continue')) {
     handleContinue();
     return;
