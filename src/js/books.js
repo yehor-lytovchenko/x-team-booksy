@@ -93,6 +93,13 @@ async function handleCategoryClick(event) {
     return;
   }
 
+  // Remove selected class from all items and add to current
+  const allDropdownItems = document.querySelectorAll('.dropdown-item');
+  allDropdownItems.forEach(item => {
+    item.classList.remove('selected');
+  });
+  categoryItem.classList.add('selected');
+
   // Update button text
   const btnText = document.querySelector('.dropdown-btn .dropdown-text');
   if (btnText) {
@@ -116,6 +123,53 @@ async function handleCategoryClick(event) {
   // Close dropdown
   const dropdown = document.querySelector('#categoryDropdown');
   dropdown.classList.remove('open');
+}
+
+export function createDropdown(selector) {
+  const dropdown = document.querySelector(selector);
+  const btn = dropdown.querySelector('.dropdown-btn');
+  const menu = dropdown.querySelector('.dropdown-menu');
+  const text = dropdown.querySelector('.dropdown-text');
+
+  // Set initial value
+  const selected = dropdown.querySelector('.dropdown-item.selected');
+  if (selected) text.textContent = selected.textContent;
+
+  // Open/close
+  btn.onclick = () => dropdown.classList.toggle('open');
+
+  // Item selection
+  const updateSelection = selectedItem => {
+    const items = dropdown.querySelectorAll('.dropdown-item');
+    items.forEach(i => i.classList.remove('selected'));
+    selectedItem.classList.add('selected');
+    text.textContent = selectedItem.textContent;
+    dropdown.classList.remove('open');
+
+    // Callback
+    dropdown.dispatchEvent(
+      new CustomEvent('change', {
+        detail: {
+          value: selectedItem.dataset.value,
+          text: selectedItem.textContent,
+        },
+      })
+    );
+  };
+
+  menu.addEventListener('click', e => {
+    const item = e.target.closest('.dropdown-item');
+    if (item) {
+      updateSelection(item);
+    }
+  });
+
+  // Close when clicking outside element
+  document.onclick = e => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+    }
+  };
 }
 
 // Event listeners
